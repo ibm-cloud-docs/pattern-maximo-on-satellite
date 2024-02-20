@@ -4,16 +4,16 @@
 ---
 toc:
   properties:
-    subcollection: <repo-name>
-    industry: industry-value
-    use-case: use-case-value
-    compliance: compliance-value
+    subcollection: pattern-maximo-on-satellite
+    # industry: industry-value
+    use-case: Managed cloud
+    # compliance: compliance-value
     audience: solution
     content-type: deployment
-    href: /docs/<repo-name>
-    path: <repo-name>
-    description: Pattern description
-    label: Pattern name
+    href: /docs/pattern-maximo-on-satellite
+    path: pattern-maximo-on-satellite
+    description: Deployment considerations for configuring Maximo Application Suite in an IBM Cloud Satellite on-premises location
+    label: Deploy Maximo in Satellite on-premises location
 
   entries:
   - navgroup:
@@ -24,7 +24,7 @@ toc:
   - navgroup:
       id: architecture
       topics:
-      - reference-architecture-pattern-name.md
+      - reference-architecture-maximo-on-satellite.md
 
   - navgroup:
       id: plan
@@ -38,13 +38,15 @@ toc:
             navtitle: Storage
           - topic: networking-design.md
             navtitle: Networking
+          - topic: data-design.md
+            navtitle: Data
           - topic: security-design.md
             navtitle: Security
           - topic: resiliency-design.md
             navtitle: Resiliency
           - topic: service-management-design.md
             navtitle: Service management
-          - other-design.md
+          # - other-design.md
       - topicgroup:
           label: Architecture decisions
           topics:
@@ -54,13 +56,15 @@ toc:
             navtitle: Storage
           - topic: networking-architecture.md
             navtitle: Networking
+          - topic: data-architecture.md
+            navtitle: Data
           - topic: security-architecture.md
             navtitle: Security
           - topic: resiliency-architecture.md
             navtitle: Resiliency
           - topic: service-management-architecture.md
             navtitle: Service management
-          - other-architecture.md
+          # - other-architecture.md
 
   - navgroup:
       id: deploy
