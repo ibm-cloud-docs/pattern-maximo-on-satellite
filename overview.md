@@ -32,12 +32,12 @@ The pattern follows the {{site.data.keyword.IBM}} architecture framework and pro
 
 The objective of this pattern document is to serve as a guide to meet typical customer requirements and provide a base reference solution for a distributed cloud solution that is secure and resilient especially for customers moving from Maximo 7.x to MAS 8.x.
 
-## {{site.data.keyword.satelliteshort}} components
+
+## Major components of the solution
 {: sat-components}
 
-There are two major components in {{site.data.keyword.satelliteshort}}:
-- The management plane components along with the services that are available on {{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.satelliteshort}} has two major components that would be configured first:
+- The management plane components along with the services that are required and available on {{site.data.keyword.Bluemix_notm}}.
 - The {{site.data.keyword.satelliteshort}}-enabled services available at a {{site.data.keyword.satelliteshort}} location.
 
-
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more details, see [Introduction to the Architecture Framework](/docs/architecture-framework).
+In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which IBM Maximo® Application Suite (MAS) v8.x would be set up at that location. This pattern is extremely useful for customers who are thinking of migrating from Maximo 7.x to MAS 8.x.
