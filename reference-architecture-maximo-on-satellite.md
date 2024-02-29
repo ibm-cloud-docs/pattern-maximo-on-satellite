@@ -125,35 +125,28 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 
 | Aspect| Component| How the component is used |
 |---|---|---|
-| Compute | Hosts | Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n - Host OS: RHEL 8.x |
-| | {{site.data.keyword.satelliteshort}} worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 128 GB RAM x 6 |
-| | {{site.data.keyword.satelliteshort}} worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service which includes MongoDB as required by MAS core. It does not include any other MAS service. |
+| Compute | Hosts | Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n Host OS: RHEL 8.x |
+| | {{site.data.keyword.satelliteshort}} worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | 16 vCPU and 128 GB RAM x 6 |
+| | {{site.data.keyword.satelliteshort}} worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service which includes MongoDB as required by MAS core. \n  This solution pattern does not include any other MAS application. |
 | | Containers | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} |
 | | Red Hat OpenShift cluster | Recommend using even-numbered Red Hat OpenShift Container Platform versions  |
 | | Red Hat OpenShift cluster services | These services are required by MAS Core and all its applications. \n  - IBM Certificate Manager \n - IBM Suite License Service \n - Service Binding Operator \n - User Data Servies (UDS). Note: Starting with MAS 8.10.10, UDS is replaced with IBM Data Reporter Operator (DRO). {: note} |
 | | Workload isolation | Single cluster for all workloads |
 | | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
-| Storage: Primary | {{site.data.keyword.satelliteshort}} Hosts: Control plane and worker nodes host node local storage
-| | {{site.data.keyword.satelliteshort}} Services storage: \n Red Hat OpenShift (Customer Workloads) | Software Defined Storage (SDS) |
-| | Software Defined Storage | Red Hat OpenShift Data Foundation (ODF) |
-| Storage: Backup | {{site.data.keyword.satelliteshort}} Control Plane Data | {{site.data.keyword.cos_full_notm}} (IBM-managed backups) |
-| | Red Hat OpenShift workload data | Customer might choose to use Cloud Object Storage on {{site.data.keyword.Bluemix_notm}} |
+| | Bastion host | Bastion host, external to the RHOS is useful when installing MAS core, Cloud Pak for Data (CP4D), and other prerequisites into Red Hat OpenShift cluster. |
+| Storage: Primary | Red Hat OpenShift cluster | Control plane worker nodes host local storage \n  Data plane worker nodes offer Red Hat OpenShift Data Foundation (ODF) internal storage for application data, registry, logging, metrics. |
+| Storage: Backup | Red Hat OpenShift workload data | Customer can choose to use Cloud Object Storage on {{site.data.keyword.Bluemix_notm}} |
 | Networking | Enterprise Connectivity | MAS uses networking setup by Red Hat® OpenShift® Container Platform (RHOCP) for its internal communications. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-networking-considerations) |
 | | | Connectivity from the cluster to external endpoints (except in an air-gapped deployment) |
 | | | Connectivity into the cluster for Web Browsers to access the MAS control plane and applications |
 | | | Connectivity from the Web Browsers to external Internet endpoints via port 443 |
-| | Cloud Connectivity | |
-| | {{site.data.keyword.satelliteshort}} location connectivity | {{site.data.keyword.satelliteshort}} link over public network
-| | {{site.data.keyword.satelliteshort}} Services Connectivity | {{site.data.keyword.satelliteshort}} link location endpoint for Red Hat OpenShift cluster
-| | {{site.data.keyword.Bluemix_notm}} services connectivity | {{site.data.keyword.satelliteshort}} link cloud endpoints
-| | Load balancers | |
-| | Red Hat OpenShift application load balancer | 3rd party load balancer –Ingress Controller |
+| | Load balancers | External LB to access protocol endpoints that are used to communicate with  RHOCP and with the applications |
 | | Segmentation | MAS is configured to enable least-privilege access throughout the product with a default deny-all policy |
 | | Red Hat OpenShift cluster | Container network policies |
 | | DNS | Client DNS at {{site.data.keyword.satelliteshort}} location |
 | Data | Data services | Dependent on MAS application. For MAS core only MongoDB is required.
 | | MongoDB | MAS uses MongoDB for its data dictionary and local user management. In this solution, {{site.data.keyword.satelliteshort}}-enabled MongoDB service is used. |
-| | Cloud Pak for Data Services | While MAS includes an entitlement to use Cloud Pak for Data, it is not a pre-requisite for MAS core. \n  DB2 Warehouse is another CP4D component that is used by MAS applications like Manage and Health |
+| | Cloud Pak for Data Services | While MAS includes an entitlement to use Cloud Pak for Data, it is not a pre-requisite for MAS core. \n  DB2 Warehouse is another CP4D component that is used by MAS applications like Maximo Manage and Maximo Health |
 | Security | Connectivity | - DNS should contain the domain names  \n - Firewall if present should allow TCP/IP connections from RHOCP nodes to port 443 of external sites |
 | Security: Data | | |
 | Data encryption at rest | {{site.data.keyword.satelliteshort}} control plane backup storage | Cloud Object Storage encrypted with provider keys |
@@ -162,7 +155,7 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | Data encyption in transit | {{site.data.keyword.satelliteshort}} Link | Encryption that uses TLS |
 | | Red Hat OpenShift cluster workloads | App-level encryption that uses TLS |
 | | Certificate Issuer | By default, MAS provides a Cluster Issuer that generates self-signed certificates. Customers have the option to provide their Certificate Issuer. /n  MAS uses IBM® Certificate Manager for automatic management and issuance of TLS certificates. |
-| Security: Identity and Access Management (IAM) | LDAP server | The LDAP server must support the secure LDAP (LDAPS) protocol. Non-TLS connections are not supported.|
+| Security: Identity and Access Management (IAM) | LDAP server \n  SAML server | The LDAP server must support the secure LDAP (LDAPS) protocol. Non-TLS connections are not supported. \n  MAS core maintains a registry of users. You can specify which users have access to which MAS applications. |
 | | {{site.data.keyword.satelliteshort}} services: \n Red Hat OpenShift (Customer Workloads Cluster) | - {{site.data.keyword.Bluemix_notm}} IAM Roles \n - Kubernetes role-based access control (RBAC) Roles |
 | IAM: Application | Runtime security (WAF and DDoS) | Bring your own Edge Security | |
 | IAM: Infrastructure & endpoint | Core Network Protection | Subnets and firewall rules | |
@@ -170,12 +163,13 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | Resiliency: High availability | {{site.data.keyword.satelliteshort}} Host Nodes (control and worker nodes) | Multi-zone deployment | |
 | | Red Hat OpenShift workloads | Multi-zone Red Hat OpenShift cluster | |
 | Resiliency: Backup | Red Hat OpenShift clusters | Portworx PX Backup for Kubernetes | |
-| Service management: Monitoring | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} Monitoring Tool \n - {{site.data.keyword.monitoringlong_notm}} | |
+| Service management: Monitoring | IBM® Maximo® Application Suite | Configure Red Hat® OpenShift® cluster monitoring and install Grafana to monitor MAS \n - MAS uses the Prometheus monitoring stack within OCP for application level metrics \n - IBM {{site.data.keyword.satelliteshort}} Monitoring Tool for infrastructure |
 | | Red Hat OpenShift clusters | {{site.data.keyword.monitoringlong_notm}} | |
 | Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.loganalysisshort}} tool \n - {{site.data.keyword.loganalysislong}} |
 | | Red Hat OpenShift clusters | {{site.data.keyword.loganalysislong_notm}} |
 | Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.cloudaccesstraillong}} |
 | | Red Hat OpenShift clusters | {{site.data.keyword.cloudaccesstraillong}} |
+| Service management: Email | SMTP server | External SMTP server required to configure MAS core, Maximo Manage, and other applications to send emails to users. |
 {: caption="Table 2. Pattern components" caption-side="bottom"}
 
 As mentioned earlier, the Architecture Framework is used to guide and determine the applicable aspects and domains for which architecture decisions need to be made. The following sections contain the considerations, and architecture decisions for the aspects and domains that are in play in this solution pattern.
