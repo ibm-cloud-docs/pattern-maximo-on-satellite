@@ -2,11 +2,11 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-15"
 
-subcollection: <repo-name>
+subcollection: pattern-maximo-on-satellite
 
-keywords:
+keywords: Satellite, location, Maximo, MAS
 
 ---
 
@@ -37,7 +37,9 @@ The objective of this pattern document is to serve as a guide to meet typical cu
 {: massat-components}
 
 {{site.data.keyword.satelliteshort}} has two major components that would be configured first:
-- The management plane components along with the services that are required and available on {{site.data.keyword.Bluemix_notm}}.
+- The {{site.data.keyword.satelliteshort}} localtion management plane components along with the services that are required and available on {{site.data.keyword.Bluemix_notm}}.
 - The {{site.data.keyword.satelliteshort}}-enabled services available at a {{site.data.keyword.satelliteshort}} location.
+
+The Maximo Application Suite includes applications, such as Maximo Manage, Maximo Monitor, Maximo Health, Maximo Predict, Maximo Visual Inspection, Maximo Assist, and Maximo MRO Inventory Optimization. See [here](https://www.ibm.com/docs/en/mas-cd/maximo-manage/continuous-delivery?topic=SSLPL8_cd/com.ibm.mam.doc/upgrade/c_mas_architecture.htm)
 
 In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which IBM Maximo® Application Suite (MAS) v8.x would be set up at that location. This pattern is extremely useful for customers who are thinking of migrating from Maximo 7.x to MAS 8.x.
