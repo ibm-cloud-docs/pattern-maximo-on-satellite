@@ -34,7 +34,7 @@ The objective of this pattern document is to serve as a guide to meet typical cu
 
 
 ## Major components of the solution
-{: massat-components}
+{: #massat-components}
 
 {{site.data.keyword.satelliteshort}} has two major components that would be configured first:
 - The {{site.data.keyword.satelliteshort}} localtion management plane components along with the services that are required and available on {{site.data.keyword.Bluemix_notm}}.

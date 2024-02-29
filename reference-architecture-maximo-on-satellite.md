@@ -10,6 +10,7 @@ keywords: Satellite, location, Maximo, MAS
 
 authors:
 - name: Ashok Iyengar
+- url: https://linkedin.com/in/ashokiyengar
 
 # The release that the reference architecture describes
 version: 1.0
@@ -20,6 +21,10 @@ version: 1.0
 deployment-url:
 
 docs: https://cloud.ibm.com/docs/pattern-maximo-on-satellite
+
+# use-case from 'code' column in
+# https://github.ibm.com/digital/taxonomy/blob/main/topics/topics_flat_list.csv
+use-case: Enterprise asset management
 
 content-type: reference-architecture
 
@@ -32,7 +37,7 @@ The following line inserts all the attribute definitions. Don't delete.
 # Deploy Satellite on-premises or in hyperscaler
 {: #maximo-on-satellite}
 {: toc-content-type="reference-architecture"}
-{: toc-use-case="Managed cloud"}
+{: toc-use-case="Enterprise asset management"}
 {: toc-version="1.0"}
 
 IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern basically involves:
