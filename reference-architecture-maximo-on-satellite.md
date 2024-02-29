@@ -120,17 +120,17 @@ The following table represents a baseline set of requirements, which are applica
 ## Components <!-- H2 -->
 {: #components}
 
-For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite). The table below lists the components for setting up Maximo Application Suite Core, on Red Hat OpenShift on-premises as a Managed Cloud Service (aka ROKS) via IBM Cloud Satellite. It represents the minimum resources needed to successfully install Maximo Application Suite. Note, more resources might be needed to support specific workloads. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software)
+For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite). The table below lists the components for setting up Maximo Application Suite Core, on Red Hat OpenShift on-premises as a Managed Cloud Service (aka ROKS) via IBM Cloud Satellite. It represents the minimum resources needed to successfully install Maximo Application Suite Core. Note, more resources might be needed to support specific workloads. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software)
 
 
 | Aspect| Component| How the component is used |
 |---|---|---|
-| Compute | Hosts | - Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n - Host OS: RHEL 8.x |
-| | {{site.data.keyword.satelliteshort}} services worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 128 GB RAM (minimum of 3 spares) for Red Hat OpenShift Data Foundation persistent storage. |
-| | {{site.data.keyword.satelliteshort}} services worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service. This reference solution does not include any other services. |
+| Compute | Hosts | Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n - Host OS: RHEL 8.x |
+| | {{site.data.keyword.satelliteshort}} worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 128 GB RAM x 6 |
+| | {{site.data.keyword.satelliteshort}} worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service which includes MongoDB as required by MAS core. It does not include any other MAS service. |
 | | Containers | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} |
-| | Red Hat OpenShift cluster connectivity | - IBM® Maximo® Application Suite uses the networking setup by Red Hat® OpenShift® Container Platform for its internal communications  |
-| | Workloads Access | - Red Hat OpenShift Routes \n - Node Ports \n - There is the ability to integrate external load balancers, just point load balancer to the Red Hat OpenShift router node port. {: note} |
+| | Red Hat OpenShift cluster | Recommend using even-numbered Red Hat OpenShift Container Platform versions  |
+| | Red Hat OpenShift cluster services | These services are required by MAS Core and all its applications. \n  - IBM Certificate Manager \n - IBM Suite License Service \n - Service Binding Operator \n - User Data Servies (UDS). Note: Starting with MAS 8.10.10, UDS is replaced with IBM Data Reporter Operator (DRO). {: note} |
 | | Workload isolation | Single cluster for all workloads |
 | | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
 | Storage: Primary | {{site.data.keyword.satelliteshort}} Hosts: Control plane and worker nodes host node local storage
@@ -151,6 +151,9 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | | Segmentation | MAS is configured to enable least-privilege access throughout the product with a default deny-all policy |
 | | Red Hat OpenShift cluster | Container network policies |
 | | DNS | Client DNS at {{site.data.keyword.satelliteshort}} location |
+| Data | Data services | Dependent on MAS application. For MAS core only MongoDB is required.
+| | MongoDB | MAS uses MongoDB for its data dictionary and local user management. In this solution, {{site.data.keyword.satelliteshort}}-enabled MongoDB service is used. |
+| | Cloud Pak for Data Services | While MAS includes an entitlement to use Cloud Pak for Data, it is not a pre-requisite for MAS core. \n  DB2 Warehouse is another CP4D component that is used by MAS applications like Manage and Health |
 | Security | Connectivity | - DNS should contain the domain names  \n - Firewall if present should allow TCP/IP connections from RHOCP nodes to port 443 of external sites |
 | Security: Data | | |
 | Data encryption at rest | {{site.data.keyword.satelliteshort}} control plane backup storage | Cloud Object Storage encrypted with provider keys |
@@ -158,10 +161,8 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | | Red Hat OpenShift cluster persistent storage | Cluster volume encryption with Kubernetes Secret |
 | Data encyption in transit | {{site.data.keyword.satelliteshort}} Link | Encryption that uses TLS |
 | | Red Hat OpenShift cluster workloads | App-level encryption that uses TLS |
-| | Certificate Lifecycle Management | Customer on-premises certificate manager |
-| Security: Identity and Access Management (IAM) | | |
-| IAM: Access & Role Management |	{{site.data.keyword.satelliteshort}} Location | - {{site.data.keyword.Bluemix_notm}} account set up \n - Account and Resource Organization \n - {{site.data.keyword.Bluemix_notm}} IAM roles and access groups |
-| | {{site.data.keyword.satelliteshort}} location hosts | {{site.data.keyword.Bluemix_notm}} IAM | |
+| | Certificate Issuer | By default, MAS provides a Cluster Issuer that generates self-signed certificates. Customers have the option to provide their Certificate Issuer. /n  MAS uses IBM® Certificate Manager for automatic management and issuance of TLS certificates. |
+| Security: Identity and Access Management (IAM) | LDAP server | The LDAP server must support the secure LDAP (LDAPS) protocol. Non-TLS connections are not supported.|
 | | {{site.data.keyword.satelliteshort}} services: \n Red Hat OpenShift (Customer Workloads Cluster) | - {{site.data.keyword.Bluemix_notm}} IAM Roles \n - Kubernetes role-based access control (RBAC) Roles |
 | IAM: Application | Runtime security (WAF and DDoS) | Bring your own Edge Security | |
 | IAM: Infrastructure & endpoint | Core Network Protection | Subnets and firewall rules | |
