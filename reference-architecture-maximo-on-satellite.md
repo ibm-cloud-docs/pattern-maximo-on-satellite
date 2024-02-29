@@ -34,7 +34,7 @@ The following line inserts all the attribute definitions. Don't delete.
 -->
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploy Satellite on-premises or in hyperscaler
+# Deploy Maximo Application Suite in on-premises Satellite location
 {: #maximo-on-satellite}
 {: toc-content-type="reference-architecture"}
 {: toc-use-case="Enterprise asset management"}
@@ -78,9 +78,9 @@ The base {{site.data.keyword.satellitelong_notm}} solution covers design conside
 
 The [Introduction to the architecture framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas to consider for any enterprise solution. It can be used as a guide to make the necessary design and component choices. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
-In Figure 3, you can view the domains that are relevant in an {{site.data.keyword.satellitelong_notm}} solution.
+In Figure 3, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
 
-![Base {{site.data.keyword.satelliteshort}} architecture framework](/images/Base-Satellite-AF.svg){: caption="Figure 3. Base {{site.data.keyword.satellitelong_notm}} Architecture Framework" caption-side="bottom"}
+![MAS on {{site.data.keyword.satelliteshort}} architecture framework](/images/Base-Satellite-AF.svg){: caption="Figure 3. MAS on {{site.data.keyword.satellitelong_notm}} Architecture Framework" caption-side="bottom"}
 
 The Architecture Framework, described in [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
@@ -126,20 +126,16 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | Aspect| Component| How the component is used |
 |---|---|---|
 | Compute | Hosts | - Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n - Host OS: RHEL 8.x |
-| | {{site.data.keyword.satelliteshort}} services worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 64 GB RAM (minimum of 3spares) for Red Hat OpenShift Data Foundation persistent storage. |
+| | {{site.data.keyword.satelliteshort}} services worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 128 GB RAM (minimum of 3 spares) for Red Hat OpenShift Data Foundation persistent storage. |
 | | {{site.data.keyword.satelliteshort}} services worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service. This reference solution does not include any other services. |
 | | Containers | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} |
 | | Red Hat OpenShift cluster connectivity | - IBM® Maximo® Application Suite uses the networking setup by Red Hat® OpenShift® Container Platform for its internal communications  |
 | | Workloads Access | - Red Hat OpenShift Routes \n - Node Ports \n - There is the ability to integrate external load balancers, just point load balancer to the Red Hat OpenShift router node port. {: note} |
 | | Workload isolation | Single cluster for all workloads |
-| | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} \n - IBM Cloud Container Registry (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
+| | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
 | Storage: Primary | {{site.data.keyword.satelliteshort}} Hosts: Control plane and worker nodes host node local storage
 | | {{site.data.keyword.satelliteshort}} Services storage: \n Red Hat OpenShift (Customer Workloads) | Software Defined Storage (SDS) |
-| | Software Defined Storage | - Red Hat OpenShift Data Foundation\n - Portworx enterprise (if customer is an existing Portworx user) |
-| | Portworx enterprise storage | Worker node host local disks |
-| | {{site.data.keyword.satelliteshort}} services storage template: \n Red Hat OpenShift | Bring your Own Driver: Portworx |
-| | {{site.data.keyword.satelliteshort}} Services Storage Template: \n Other {{site.data.keyword.satelliteshort}} enabled services | Based on {{site.data.keyword.satelliteshort}} enabled service |
-| | | |
+| | Software Defined Storage | Red Hat OpenShift Data Foundation (ODF) |
 | Storage: Backup | {{site.data.keyword.satelliteshort}} Control Plane Data | {{site.data.keyword.cos_full_notm}} (IBM-managed backups) |
 | | Red Hat OpenShift workload data | Customer might choose to use Cloud Object Storage on {{site.data.keyword.Bluemix_notm}} |
 | Networking | Enterprise Connectivity | MAS uses networking setup by Red Hat® OpenShift® Container Platform (RHOCP) for its internal communications. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-networking-considerations) |

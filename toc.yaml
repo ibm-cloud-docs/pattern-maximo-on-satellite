@@ -6,7 +6,7 @@ toc:
   properties:
     subcollection: pattern-maximo-on-satellite
     # industry: industry-value
-    use-case: Managed cloud
+    use-case: Enterprise asset management
     # compliance: compliance-value
     audience: solution
     content-type: deployment

@@ -4,9 +4,9 @@ copyright:
   years: 2024
 lastupdated: "2024-01-23"
 
-subcollection: <repo-name>
+subcollection: pattern-maximo-on-satellite
 
-keywords:
+keywords: Satellite, location, Maximo, MAS
 
 ---
 
@@ -16,12 +16,18 @@ keywords:
 # References
 {: #references}
 
-[IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
+Review the following references to guide you through the IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern.
 
-[IBM Cloud for SAP Get Started](/docs/sap?topic=sap-get-started)
+[Maximo Application Suite docs](https://www.ibm.com/docs/en/mas-cd/continuous-delivery)
 
-[Veeam Plug-ins for Enterprise Applications](https://helpcenter.veeam.com/docs/backup/plugins/overview.html?ver=120)
+[Maximo Application Suite installation](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=installing)
 
-[Sizing process for SAP Systems](/docs/sap?topic=sap-sizing&interface=ui)
+[Maximo Application Suite monitoring](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=monitoring)
 
-[FAQ -- SAP on IBM Cloud](/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
+[{{site.data.keyword.satellitelong_notm}} docs](/docs/satellite?topic=satellite-service-architecture)
+
+[{{site.data.keyword.satellitelong_notm}} HA and DR](/docs/satellite?topic=satellite-ha#satellite-ha-setup)
+
+[{{site.data.keyword.satellitelong_notm}} Location Events](/docs/satellite?topic=satellite-at_events)
+
+[{{site.data.keyword.satellitelong_notm}} Monitoring](/docs/satellite?topic=satellite-monitor#setup-mon)
