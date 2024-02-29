@@ -35,8 +35,8 @@ The following line inserts all the attribute definitions. Don't delete.
 {: toc-use-case="Managed cloud"}
 {: toc-version="1.0"}
 
-The Maximo Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern basically involves:
-- One {{site.data.keyword.satellitelong_notm}} location configured on-premises
+IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern basically involves:
+- A {{site.data.keyword.satellitelong_notm}} location configured on-premises
 - Configuring MAS at that {{site.data.keyword.satelliteshort}} location
 
 Due to privacy, regulatory, or compliance reasons, customers might not want to store their data in the public cloud. In such scenarios, the best option is to create one or more {{site.data.keyword.satelliteshort}} locations on-premises and host the MAS-related data locally.
@@ -47,7 +47,7 @@ Due to privacy, regulatory, or compliance reasons, customers might not want to s
 Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture where the {{site.data.keyword.satelliteshort}} location is deployed on-premises and MAS installed at that location.
 
 
-![Satellite location on-premises architecture](/images/SatLoc-on-premises-architecture.svg){: caption="Figure 1. Solution architecture showing MAS setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
+![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Figure 1. Solution architecture showing MAS setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
 
 
 
@@ -108,30 +108,26 @@ The following table represents a baseline set of requirements, which are applica
 | | Provide an Image Replication migration solution that will minimize disruption during cut-over |
 | | Access customer's existing Red Hat Container Registry |
 | | Use multiple {{site.data.keyword.satelliteshort}} locations to enable DR for MAS applications |
-{: caption="Table 1. Pattern requirements" caption-side="bottom"}  <!-- each table MUST have a caption attribute>
+{: caption="Table 1. Pattern requirements" caption-side="bottom"}
 
 {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.satelliteshort}} is a fully managed offering and there are certain responsibilities that are shared by IBM and the customer. For more information about the table and the corresponding task details, see [{{site.data.keyword.satelliteshort}} responsibilities](/docs/satellite?topic=satellite-responsibilities).
 
 ## Components <!-- H2 -->
 {: #components}
 
-For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite)
+For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite). The table below lists the components for setting up Maximo Application Suite Core, on Red Hat OpenShift on-premises as a Managed Cloud Service (aka ROKS) via IBM Cloud Satellite. It represents the minimum resources needed to successfully install Maximo Application Suite. Note, more resources might be needed to support specific workloads. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software)
+
 
 | Aspect| Component| How the component is used |
 |---|---|---|
-| Cloud | {{site.data.keyword.satellitelong_notm}} | Distributed cloud paradigm |
-| | Location infrastructure | On-premises: Client provided infrastructure |
-| | Management plane MZR | Closest region (MZR) to {{site.data.keyword.satelliteshort}} location |
-| Compute | {{site.data.keyword.satelliteshort}} location hosts | Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} |
-| | Host OS | RHEL 8.x or RHCOS |
-| | Control plane hosts	| 4 vCPU and 16 GB RAM |
-| | {{site.data.keyword.satelliteshort}} services worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 64 GB RAM (minimum of 3spares) for Red Hat OpenShift Data Foundation persistent storage. \n - Regular nodes that are tailored to workload but can be as low as 4x16 |
+| Compute | Hosts | - Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n - Host OS: RHEL 8.x |
+| | {{site.data.keyword.satelliteshort}} services worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | - 16 vCPU and 64 GB RAM (minimum of 3spares) for Red Hat OpenShift Data Foundation persistent storage. |
 | | {{site.data.keyword.satelliteshort}} services worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service. This reference solution does not include any other services. |
 | | Containers | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} |
-| | Red Hat OpenShift cluster connectivity | - Private Service cluster URL \n - Public Domain Name System (DNS) pointing to control plane node IPs by default \n - Private {{site.data.keyword.satelliteshort}} link endpoint for Red Hat OpenShift cluster accessible within {{site.data.keyword.Bluemix_notm}} private network  |
+| | Red Hat OpenShift cluster connectivity | - IBM® Maximo® Application Suite uses the networking setup by Red Hat® OpenShift® Container Platform for its internal communications  |
 | | Workloads Access | - Red Hat OpenShift Routes \n - Node Ports \n - There is the ability to integrate external load balancers, just point load balancer to the Red Hat OpenShift router node port. {: note} |
 | | Workload isolation | Single cluster for all workloads |
-| | Container Images Registry | {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} |
+| | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} \n - IBM Cloud Container Registry (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
 | Storage: Primary | {{site.data.keyword.satelliteshort}} Hosts: Control plane and worker nodes host node local storage
 | | {{site.data.keyword.satelliteshort}} Services storage: \n Red Hat OpenShift (Customer Workloads) | Software Defined Storage (SDS) |
 | | Software Defined Storage | - Red Hat OpenShift Data Foundation\n - Portworx enterprise (if customer is an existing Portworx user) |
@@ -141,18 +137,20 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | | | |
 | Storage: Backup | {{site.data.keyword.satelliteshort}} Control Plane Data | {{site.data.keyword.cos_full_notm}} (IBM-managed backups) |
 | | Red Hat OpenShift workload data | Customer might choose to use Cloud Object Storage on {{site.data.keyword.Bluemix_notm}} |
-| Networking |Enterprise Connectivity | |
-| | {{site.data.keyword.satelliteshort}} location and {{site.data.keyword.dl_full_notm}} 2.0 connect or internet |
-| | {{site.data.keyword.satelliteshort}} location private Network | VPN or Use {{site.data.keyword.satelliteshort}} link for Transmission Control Protocol (TCP) and HTTPS connections (no User Datagram Protocol)|
+| Networking | Enterprise Connectivity | MAS uses networking setup by Red Hat® OpenShift® Container Platform (RHOCP) for its internal communications. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-networking-considerations) |
+| | | Connectivity from the cluster to external endpoints (except in an air-gapped deployment) |
+| | | Connectivity into the cluster for Web Browsers to access the MAS control plane and applications |
+| | | Connectivity from the Web Browsers to external Internet endpoints via port 443 |
 | | Cloud Connectivity | |
 | | {{site.data.keyword.satelliteshort}} location connectivity | {{site.data.keyword.satelliteshort}} link over public network
 | | {{site.data.keyword.satelliteshort}} Services Connectivity | {{site.data.keyword.satelliteshort}} link location endpoint for Red Hat OpenShift cluster
 | | {{site.data.keyword.Bluemix_notm}} services connectivity | {{site.data.keyword.satelliteshort}} link cloud endpoints
 | | Load balancers | |
 | | Red Hat OpenShift application load balancer | 3rd party load balancer –Ingress Controller |
-| | Segmentation | |
+| | Segmentation | MAS is configured to enable least-privilege access throughout the product with a default deny-all policy |
 | | Red Hat OpenShift cluster | Container network policies |
 | | DNS | Client DNS at {{site.data.keyword.satelliteshort}} location |
+| Security | Connectivity | - DNS should contain the domain names  \n - Firewall if present should allow TCP/IP connections from RHOCP nodes to port 443 of external sites |
 | Security: Data | | |
 | Data encryption at rest | {{site.data.keyword.satelliteshort}} control plane backup storage | Cloud Object Storage encrypted with provider keys |
 | | {{site.data.keyword.satelliteshort}} worker nodes data | Worker nodes storage encryption: Customer |
@@ -176,6 +174,6 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | | Red Hat OpenShift clusters | {{site.data.keyword.loganalysislong_notm}} |
 | Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.cloudaccesstraillong}} |
 | | Red Hat OpenShift clusters | {{site.data.keyword.cloudaccesstraillong}} |
-{: caption="Table 2. Pattern components" caption-side="bottom"} <!-- each table MUST have a caption attribute>
+{: caption="Table 2. Pattern components" caption-side="bottom"}
 
 As mentioned earlier, the Architecture Framework is used to guide and determine the applicable aspects and domains for which architecture decisions need to be made. The following sections contain the considerations, and architecture decisions for the aspects and domains that are in play in this solution pattern.
