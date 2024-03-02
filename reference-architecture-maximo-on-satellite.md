@@ -41,7 +41,7 @@ The following line inserts all the attribute definitions. Don't delete.
 {: toc-version="1.0"}
 
 IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern basically involves:
-- A {{site.data.keyword.satellitelong_notm}} location configured on-premises
+- An {{site.data.keyword.satellitelong_notm}} location configured on-premises
 - Configuring MAS at that {{site.data.keyword.satelliteshort}} location
 
 Due to privacy, regulatory, or compliance reasons, customers might not want to store their data in the public cloud. In such scenarios, the best option is to create one or more {{site.data.keyword.satelliteshort}} locations on-premises and host the MAS-related data locally.
@@ -120,13 +120,13 @@ The following table represents a baseline set of requirements, which are applica
 ## Components <!-- H2 -->
 {: #components}
 
-For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite). The table below lists the components for setting up Maximo Application Suite Core, on Red Hat OpenShift on-premises as a Managed Cloud Service (aka ROKS) via IBM Cloud Satellite. It represents the minimum resources needed to successfully install Maximo Application Suite Core. Note, more resources might be needed to support specific workloads. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software)
+For a list of {{site.data.keyword.satelliteshort}}-related components please [see](https://cloud.ibm.com/docs/pattern-base-ibm-cloud-satellite). The table below lists the components for setting up Maximo Application Suite Core, on Red Hat OpenShift on-premises as a Managed Cloud Service (aka ROKS) via IBM Cloud Satellite. It represents the minimum resources needed to successfully install medium-sized Maximo Application Suite Core. Note, more resources might be needed to support specific workloads. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software)
 
 
 | Aspect| Component| How the component is used |
 |---|---|---|
 | Compute | Hosts | Virtual machine (VM) or {{site.data.keyword.baremetal_short_sing}} \n Host OS: RHEL 8.x |
-| | {{site.data.keyword.satelliteshort}} worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | 16 vCPU and 128 GB RAM x 6 |
+| | {{site.data.keyword.satelliteshort}} worker nodes hosts: \n Red Hat OpenShift (Customer Workload Cluster) | 8 vCPU and 32 GB RAM x 6 |
 | | {{site.data.keyword.satelliteshort}} worker nodes hosts : \n Other {{site.data.keyword.satelliteshort}}-enabled services | Based on {{site.data.keyword.satelliteshort}}-enabled service which includes MongoDB as required by MAS core. \n  This solution pattern does not include any other MAS application. |
 | | Containers | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} |
 | | Red Hat OpenShift cluster | Recommend using even-numbered Red Hat OpenShift Container Platform versions  |
@@ -134,7 +134,7 @@ For a list of {{site.data.keyword.satelliteshort}}-related components please [se
 | | Workload isolation | Single cluster for all workloads |
 | | Container Images Registry | - {{site.data.keyword.registrylong_notm}} on {{site.data.keyword.Bluemix_notm}} (cp.icr.io) \n - Quay Registry (quay.io) \n - Red Hat Registry (registry.redhat.io) |
 | | Bastion host | Bastion host, external to the RHOS is useful when installing MAS core, Cloud Pak for Data (CP4D), and other prerequisites into Red Hat OpenShift cluster. |
-| Storage: Primary | Red Hat OpenShift cluster | Control plane worker nodes host local storage \n  Data plane worker nodes offer Red Hat OpenShift Data Foundation (ODF) internal storage for application data, registry, logging, metrics. |
+| Storage: Primary | Red Hat OpenShift cluster | Control plane worker nodes host local storage \n  Data plane worker nodes offer Red Hat OpenShift Data Foundation (ODF) internal storage for application data, registry, logging, metrics. \n  Recommend 15 GB - 25 GB of disk storage per CPU allocated to the compute nodes. |
 | Storage: Backup | Red Hat OpenShift workload data | Customer can choose to use Cloud Object Storage on {{site.data.keyword.Bluemix_notm}} |
 | Networking | Enterprise Connectivity | MAS uses networking setup by Red Hat® OpenShift® Container Platform (RHOCP) for its internal communications. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-networking-considerations) |
 | | | Connectivity from the cluster to external endpoints (except in an air-gapped deployment) |
