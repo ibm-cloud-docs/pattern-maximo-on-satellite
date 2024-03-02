@@ -15,6 +15,8 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for compute
 {: #compute-decisions}
 
+The following sections summarize the compute architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
+
 <!-- below is a placeholder for all compute domain decisions  Remove the domains that are not in scope.  If there are decisions
 that need to be added (e.g. platform dependent) add additional rows-->
 
@@ -25,4 +27,14 @@ that need to be added (e.g. platform dependent) add additional rows-->
 |Virtualization| text | text | text | text |
 |Containers| text | text | text | text |
 |Serverless| text | text | text | text |
-{: caption="Table 1. Architecture decisions for compute" caption-side="bottom"}
+{: caption="Table 1. Architecture decisions for compute related to {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}
+
+
+| Architecture decision| Requirement| Option |Decision| Rationale|
+|---|---|---|---|---|
+|Bare metal servers| text | text | text | text |
+|Virtual servers| text | text | text | text |
+|Virtualization| text | text | text | text |
+|Containers| text | text | text | text |
+|Serverless| text | text | text | text |
+{: caption="Table 2. Architecture decisions for compute related to Maximo® Application Suite" caption-side="bottom"}
