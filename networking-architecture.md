@@ -72,7 +72,7 @@ The following are load balancing architecture decisions for this design.
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 | Global load balancing | Load balancing over the public network across two regions in the event of an outage (DR) for failover to the other region. | text | text |text|
 | Load balancing (public) | Load balancing workloads across multiple workload instances or zones over the public network. | text | text |text|
-| Load balancing (private) | Load balancing workloads across multiple workload instances or zones over the private network. | text | text |text|
+| Load balancing (private) | Load balancing workloads across multiple workload instances or zones over the private network. | Dedicated VM \n  Commercial LB | Dedicated VM | Recommend using a dedicated VM for load balancing. If already availabe, use a commercial grade L4 load balancer, such as NGINX, F5, or other load balancer.|
 {: caption="Table 5. Architecture decisions for load balancing" caption-side="bottom"}
 
 ## Architecture decisions for content delivery network

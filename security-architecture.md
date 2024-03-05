@@ -2,11 +2,11 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-15"
 
-subcollection: <repo-name>
+subcollection: pattern-maximo-on-satellite
 
-keywords:
+keywords: Satellite, location, Maximo, MAS
 
 ---
 
@@ -38,7 +38,7 @@ The following are security architecture decisions for the pattern name.
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 | Key lifecycle management and HSM | Encrypt data at rest and in transit by using customer-managed keys to protect them from unauthorized access.  | Key Protect \n Hyper Protect Crypto Services (HPCS) | Key Protect | Key Protect is recommended for applications that need to comply with regulations requiring encryption of data with customer-managed keys. Key Protect provides key management services by using a shared (multi-tenant) FIPS 140-2 Level 3 certified hardware security modules (HSMs). |
 | | | | Hyper Protect Crypto Services (HPCS) | HPCS is recommended for financial services and highly regulated industry applications. HPCS provides Key Management Services with the highest level of security and control that is offered by any cloud provider in the industry. It uses a dedicated (single-tenant) FIPS 140-2 Level 4 certified Hardware Security Module and supports customer-managed master keys, giving the customer exclusive control of the entire key hierarchy. |
-| Certificate management | Protect secrets through their entire lifecycle and secure them using access control measures | Secrets Manager \n BYO Certificate Manager | Secrets Manager | IBM Secrets Manager creates, leases, and centrally manages secrets that are used by IBM Cloud Services or customer applications. Secrets are stored in a dedicated instance of Secrets Manager and can be encrypted by using any of IBM Cloud Key Management Services. |
+| Certificate management | Manage and deploy SSL/TLS certificates for Maximo apps | IBM Certificate Manager \n BYO Certificate Manager | IBM Certificate Manager | IBM Certificate Manager controls certificate management in Maximo Application Suite 8.8 and above. \n  Install this service in the Red Hat® OpenShift® cluster, by installing the IBM Cloud Pak® foundational services operator and creating an *OperandRequest* instance that includes the *ibm-cert-manager-operator* operator in the list of requested services. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=services-certificate-manager)|
 {: caption="Table 2. Key management architecture decisions" caption-side="bottom"}
 
 ## Architecture decisions for identity and access management
@@ -46,8 +46,8 @@ The following are security architecture decisions for the pattern name.
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Privileged access management        | - Ensure that all operator actions are run securely through a bastion host \n - Implement session recording to track all activities and note any potential threats \n - Manage access to resources and track commands issued | - BYO Bastion Host \n - BYO Bastion Host with Privileged Access Management (PAM) SW                  | BYO Bastion Host with Privileged Access Management (PAM) SW  | The Bastion Host is a Virtual Server instance that is provisioned through SSH over a private network to securely access resources within IBM Cloud’s private network. Using PAM software is recommended to perform session recording and to help track and manage all access.                      |
-| Identity access & role management (IDM) | Securely authenticate users for platform services and control access to resources consistently across IBM Cloud| IBM Cloud IAM| IBM Cloud IAM| Use IAM access policies to assign users, service IDs, and trusted profiles access to resources within the IBM Cloud account.|
+| Privileged access management | Ensure that all operator actions are run securely through a bastion host | Bastion Host | Bastion Host | Bastion Host VM is used to provision the OCP bootstrap node. It is provisioned through SSH over a private network to securely access resources within IBM Cloud’s private network. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-installation-topology)|
+| Identity & access management (IAM) | Securely authenticate users for platform services and control access to resources consistently across IBM Cloud | IBM Cloud IAM | IBM Cloud IAM | Create IBM Cloud Account then use IAM access policies to assign users, service IDs, and trusted profiles access to resources within the IBM Cloud account. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=cloud-creating-your-account-configuring-permissions)|
 {: caption="Table 3. Identity and access management architecture decisions" caption-side="bottom"}
 
 ## Architecture decisions for application security
@@ -82,4 +82,12 @@ The following are security architecture decisions for the pattern name.
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 |Governance, risk and compliance| text | text | text | text|
+{: caption="Table 7. Govenrnace, risk and compliance architecture decisions" caption-side="bottom"}
+
+## Architecture decisions for License management
+{: #license management}
+
+| Architecture decision | Requirement |  Option | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| License management | Manage virtualized environments and measure license utilization | Suite License Service (SLS) | SLS | The Suite License Service (SLS) stores and manages the Maximo® Application Suite license. The license file is uploaded to the SLS server as part of initial setup. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=services-suite-license-service)|
 {: caption="Table 7. Govenrnace, risk and compliance architecture decisions" caption-side="bottom"}
