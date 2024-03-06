@@ -78,6 +78,11 @@ toc:
       - references.md
 
   - navgroup:
+      id: Pre-certification
+      topics:
+      - pre-certification.md
+
+  - navgroup:
       id: help
       topics:
       - topic: topic-10.md
