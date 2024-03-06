@@ -12,10 +12,10 @@ keywords: Satellite, location, Maximo, MAS
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Pre-certification Questions
+# Pre-certification scope
 {: #pre-certification-questions}
 
-These questions are meant to help the solution team. They ought to be used as a checklist. All questions are not relevant to every solution or deal.
+There are many questions that need to asked during certification that are meant to help the solution team. They ought to be used as a checklist. All questions are not relevant to every solution or deal.
 
 
 The aspects in the [architecture framework](/docs/architecture-framework?topic=architecture-framework-intro) are broadly used to classify the questions.
@@ -29,7 +29,7 @@ The aspects in the [architecture framework](/docs/architecture-framework?topic=a
 - **Resiliency:** Backup and Restore, High Availability
 - **Support:** Monitoring, Logging, and Support services
 
-## Pre-certification scope <!-- H2 -->
+## Pre-certification questions
 {: #pre-certification-scope}
 
 Table 1 below captures the questions.

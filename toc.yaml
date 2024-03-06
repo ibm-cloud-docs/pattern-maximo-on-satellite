@@ -75,7 +75,7 @@ toc:
   - navgroup:
       id: learn
       topics:
-      - pre-certification.md
+      - learn.md
 
   - navgroup:
       id: reference

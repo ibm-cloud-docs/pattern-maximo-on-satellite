@@ -22,9 +22,9 @@ Each of these application services uses their own persistence stores that have s
 Maximo® Application Suite provides resiliency through suite service instances, availability zones (AZs), and storage. See [Resilient architecture components](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components).
 - Suite services: Services are configured to automatically restart after a failure and keep multiple instances of the service in operation.
 - Availability zones: In an on-premises setup there are no AZs. Red Hat OpenShift worker nodes are configured across physical machines in the {{site.data.keyword.satelliteshort}} location and Kubernetes automatically schedules redundancy for the different pods.
-- Storage: There is application code and configuration data.
-  - Application code - Product images can use pods to create multiple redundant copies.
-  - Configuration data - Kubernetes configuration secrets and configuration maps are held in etcd. Other configuration data is in MongoDB. Both use mirroring.
+- Storage: There is application code and configuration data. \n
+  -- Application code - Product images can use pods to create multiple redundant copies. \n
+  -- Configuration data - Kubernetes configuration secrets and configuration maps are held in etcd. Other configuration data is in MongoDB. Both use mirroring.
 
 Refer to the [resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components#concept_lpr_mxk_nwb__title__5). Table 1 shows the resiliency aspect for the four persistent stores.
 
