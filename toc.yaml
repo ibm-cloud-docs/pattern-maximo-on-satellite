@@ -73,14 +73,14 @@ toc:
       - topic-8.md
 
   - navgroup:
-      id: Pre-certification
-      topics:
-      - pre-certification.md
-
-  - navgroup:
       id: reference
       topics:
       - references.md
+
+  - navgroup:
+      id: learn
+      topics:
+      - pre-certification.md
 
   - navgroup:
       id: help
