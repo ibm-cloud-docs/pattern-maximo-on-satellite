@@ -4,8 +4,9 @@ copyright:
   years: 2024
 lastupdated: "2024-01-23"
 
-subcollection: <repo-name>
-keywords:
+subcollection: pattern-maximo-on-satellite
+
+keywords: Satellite, location, Maximo, MAS
 
 ---
 
@@ -70,4 +71,4 @@ Table 1 below captures the questions.
 | | Is IBM responsible for any third party? | |
 | | Is e2e Service Management Defined? | |
 | | Who has tooling responsibility? | |
-{: caption="Table 1. Architecture decisions for DevOps" caption-side="bottom"}
+{: caption="Table 1. Pre-certification question in each aspect" caption-side="bottom"}

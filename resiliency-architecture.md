@@ -33,8 +33,8 @@ The following sections summarize the compute architecture decisions for the patt
 {: caption="Table 2. Backup and restore architecture decisions" caption-side="bottom"}
 
 
-## Architecture decisions for high availability
-{: #high-availability}
+## Architecture decisions for high availability in Satellite
+{: #high-availability-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
@@ -42,8 +42,8 @@ The following sections summarize the compute architecture decisions for the patt
 | High Availability | Red Hat OpenShift workloads | \n - Single zone Red Hat OpenShift cluster \n - Multi-zone Red Hat OpenShift cluster | Multi-zone Red Hat OpenShift cluster | Configure Red Hat OpenShift clusters with a minimum of 3 worker nodes and spares across 3 zones. Size the worker nodes in each zone at 50% of required CPU capacity for workloads to meet 100% capacity requirements because of a zone failure. |
 {: caption="Table 1. High availability architecture decisions" caption-side="bottom"}
 
-## Architecture decisions for backup and restore
-{: #backup-and-restore}
+## Architecture decisions for backup and restore in Satellite
+{: #backup-and-restore-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
@@ -59,8 +59,8 @@ The following sections summarize the compute architecture decisions for the patt
 | High availability application and database | * Ensure availability of application resources if outages occur. \n * Support SLA targets for application availability. | text | text | text|
 {: caption="Table 1. High availability architecture decisions" caption-side="bottom"}
 
-## Architecture decisions for backup and restore
-{: #backup-and-restore}
+## Architecture decisions for backup and restore for Satellite
+{: #backup-and-restore-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
@@ -70,8 +70,8 @@ The following sections summarize the compute architecture decisions for the patt
 | Backup automation | Schedule regular database backups based on RPO requirements to enable data recovery if unplanned outages occur. |text | text | text |
 {: caption="Table 2. Backup and restore architecture decisions" caption-side="bottom"}
 
-## Architecture decisions for disaster recovery
-{: #disaster recovery}
+## Architecture decisions for disaster recovery for Satellite
+{: #disaster recovery-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
