@@ -32,7 +32,7 @@ Refer to the [MAS resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/
 | Relational database | IBM® Db2® database | Relational database management system (RDBMS) resilience features are used. Whether workloads share a single RDBMS instance or are spread across multiple RDBMS instances, a backup scheduling strategy is required. |
 | Cloud object storage (COS) | IBM Cloud® Object Storage | A persistence store like COS, has its own resilinece processes that are different from a RDBMS. One must consider the importance of data content versus storage space expense. |
 | Red Hat® OpenShift® persistence storage | etcd | One can use built-in redundancy for greater hardware protection. |
-{: caption="Table 1. Persistence storage products in use with MAS" caption-side="bottom"}
+{: caption="Table 1. Persistence storage products in MAS and their resilience features" caption-side="bottom"}
 
 # Resiliency design Satellite
 {: #resiliency-design-sat}
