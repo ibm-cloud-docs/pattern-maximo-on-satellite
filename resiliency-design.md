@@ -15,13 +15,14 @@ keywords: Satellite, location, Maximo, MAS
 # Resiliency design MAS
 {: #resiliency-design-mas}
 
-High availability is provided by the main components of MAS. The Maximo Application Suite core services are deployed automatically with any instance. These services handle the basic administration and configuration of the suite, and they store metadata in a deployed MongoDB in a three-node instance. See [MAS logical architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-logical-architecture)
+High availability is provided by the main components of IBM® Maximo® Application Suite (MAS). MAS core services are deployed automatically with any instance. These services handle the basic administration and configuration of the suite, and they store metadata in a deployed MongoDB in a three-node instance. See [MAS logical architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-logical-architecture)
 
-Each of these application services uses their own persistence stores that have some flexibility for the instance location. In particular, the application state and user data are spread across the following types of persistence stores. While there are different choices, the ones relevant to this pattern is shown in the table 1 along with how resiliency is handled by that component:
+MAS has the ability to configure services to automatically restart after a failure and keep multiple instances of the service in operation. MAS application services use their own persistence stores that have some flexibility for the instance location. In particular, the application state and user data are spread across the following types of persistence stores. You can restore individual IBM® Maximo® Application Suite applications from your backups. While there are different choices, the ones relevant to this pattern is shown in the table 1 along with how resiliency is handled by that component:
 
 Maximo® Application Suite provides resiliency through suite service instances, availability zones (AZs), and storage. See [Resilient architecture components](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components).
+- Recommendation is to [back up](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=suite-maximo-application-core) MAS core databases and the namespace in Red Hat® OpenShift®.
 - Suite services: Services are configured to automatically restart after a failure and keep multiple instances of the service in operation.
-- Availability zones: In an on-premises setup there are no AZs. Red Hat OpenShift worker nodes are configured across physical machines in the {{site.data.keyword.satelliteshort}} location and Kubernetes automatically schedules redundancy for the different pods.
+- Availability zones: In an on-premises setup there are no AZs per se. Red Hat OpenShift worker nodes are configured across physical machines in the {{site.data.keyword.satelliteshort}} location and Kubernetes automatically schedules redundancy for the different pods.
 - Storage: There is application code and configuration data. \n -- Application code - Product images can use pods to create multiple redundant copies. \n -- Configuration data - Kubernetes configuration secrets and configuration maps are held in etcd. Other configuration data is in MongoDB. Both use mirroring.
 
 Refer to the [MAS resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components#concept_lpr_mxk_nwb__title__5). Table 1 shows the resiliency aspect for the four persistence stores.
@@ -33,6 +34,9 @@ Refer to the [MAS resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/
 | Cloud object storage (COS) | IBM Cloud® Object Storage | A persistence store like COS, has its own resilinece processes that are different from a RDBMS. One must consider the importance of data content versus storage space expense. |
 | Red Hat® OpenShift® persistence storage | etcd | One can use built-in redundancy for greater hardware protection. |
 {: caption="Table 1. Persistence storage products in MAS and their resilience features" caption-side="bottom"}
+
+Lastly, the persistent volume claim data can be copied from the pod to COS directly by creating a [network policy](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=pv-backing-up-persistent-volume-claim-data-cloud-object-storage). The network policy is needed because the MAS namespace blocks the egress network by default.
+
 
 # Resiliency design Satellite
 {: #resiliency-design-sat}

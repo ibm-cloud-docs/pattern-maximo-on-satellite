@@ -78,13 +78,13 @@ The base {{site.data.keyword.satellitelong_notm}} solution covers design conside
 
 The [Introduction to the architecture framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas to consider for any enterprise solution. It can be used as a guide to make the necessary design and component choices. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
-In Figure 3, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
+In Figure 2, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
 
 ![MAS on {{site.data.keyword.satelliteshort}} architecture framework](/images/Base-Satellite-AF.svg){: caption="Figure 3. MAS on {{site.data.keyword.satellitelong_notm}} Architecture Framework" caption-side="bottom"}
 
 The Architecture Framework, described in [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
-The Figure 3 shows the domains that are covered in this solution.
+Figure 2 shows the domains that are covered in this solution.
 
 
 ## Solution components and requirements for {{site.data.keyword.satelliteshort}} location on-premises
