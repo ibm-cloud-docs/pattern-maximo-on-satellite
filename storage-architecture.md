@@ -2,11 +2,11 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-15"
 
-subcollection: <repo-name>
+subcollection: pattern-maximo-on-satellite
 
-keywords:
+keywords: Satellite, location, Maximo, MAS
 
 ---
 

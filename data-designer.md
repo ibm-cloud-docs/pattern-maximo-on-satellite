@@ -17,6 +17,8 @@ keywords: Satellite, location, Maximo, MAS
 
 IBM® Maximo® Application Suite (MAS) is all about data since it is primarily an Enterprise Asset Management software. As an application suite it now has a set of applications for asset monitoring, management, predictive maintenance, and reliability planning.
 
+MongoDB is a prerequisite for MAS. It is used as the data dictionary for MAS and its applications. It is also used as the default user registry. The MongoDB instance can run in the Red Hat® OpenShift® cluster or external to it.
+
 IBM® User Data Services was used to collect, transform, and transmit Maximo usage data. Starting in IBM Maximo Application Suite 8.11.7 and 8.10.10, the User Data Services (UDS) is replaced with IBM Data Reporter Operator (DRO).
 DRO is a prerequisite software for Maximo. It has a reduced operational footprint and cost than IBM User Data Services.
 
