@@ -33,7 +33,7 @@ The aspects in the [architecture framework](/docs/architecture-framework?topic=a
 ## Pre-certification questions
 {: #pre-certification-scope}
 
-Table 1 below captures the questions.
+The table below captures the high-level questions.
 | Category | Question | Notes |
 |---|---|---|
 | General | Have you created a Contacts page so that after a deal closes everyone knows who was involved? | |
