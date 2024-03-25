@@ -80,7 +80,7 @@ The [Introduction to the architecture framework](/docs/architecture-framework?to
 
 In Figure 2, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
 
-![MAS on {{site.data.keyword.satelliteshort}} architecture framework](/images/Base-Satellite-AF.svg){: caption="Figure 3. MAS on {{site.data.keyword.satellitelong_notm}} Architecture Framework" caption-side="bottom"}
+![MAS on {{site.data.keyword.satelliteshort}} architecture framework](/images/MAS-Satellite-AF.svg){: caption="Figure 2. MAS on {{site.data.keyword.satellitelong_notm}} Architecture Framework" caption-side="bottom"}
 
 The Architecture Framework, described in [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
