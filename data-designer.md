@@ -22,4 +22,4 @@ MongoDB is a prerequisite for MAS. It is used as the data dictionary for MAS and
 IBM® User Data Services was used to collect, transform, and transmit Maximo usage data. Starting in IBM Maximo Application Suite 8.11.7 and 8.10.10, the User Data Services (UDS) is replaced with IBM Data Reporter Operator (DRO).
 DRO is a prerequisite software for Maximo. It has a reduced operational footprint and cost than IBM User Data Services.
 
-Many enterprises want to keep their data on-premises. This maximo-on-satellite pattern helps enterprises do that by deploying MAS in an on-premiess {{site.data.keyword.satelliteshort}} location.
+Many enterprises want to keep their data on-premises. This maximo-on-satellite pattern helps enterprises do that by deploying MAS in an on-premises {{site.data.keyword.satelliteshort}} location.
