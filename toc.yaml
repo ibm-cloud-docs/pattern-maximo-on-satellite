@@ -66,8 +66,6 @@ toc:
             navtitle: Resiliency
           - topic: service-management-architecture.md
             navtitle: Service management
-          - topic: pre-certification.md
-            navtitle: Pre-certification
           # - other-architecture.md
 
   - navgroup:

@@ -62,13 +62,15 @@ Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture w
 
 The base {{site.data.keyword.satellitelong_notm}} solution covers design considerations and architecture decisions for the following aspects and domains:
 
+- **Application Platform:** Enterprise Applications
+
 - **Compute:** Bare Metal, Virtual Servers, Virtualization, Containers
 
 - **Storage:** Primary Storage, Backup Storage
 
 - **Networking:** Enterprise Connectivity, Network Segmentation
 
-- **Data:** Data Storage (highlighting the Data Residency requirement)
+- **Data:** Databases & Data Storage (highlighting the Data Residency requirement)
 
 - **Security:** Data Security, Identity and Access Management, Infrastructure and Endpoint
 
@@ -101,10 +103,11 @@ The following table represents a baseline set of requirements, which are applica
 
 | Aspect | Requirement |
 |---|---|
+| Application platform | Solution should to be fully managed from end to end |
 | Compute | Customer is looking to deploy hosts running managed Red Hat OpenShift Kubernetes Service (ROKS) clusters in the {{site.data.keyword.satelliteshort}} location |
 | Storage | Provide storage that meets the MAS applications and database performance requirements |
 | Network | Provide secure, low-latency connectivity |
-| Data | Data security and compliance requirements require that the data remain on-premises |
+| Data | - Data security and compliance requirements require that the data remain on-premises. \n -  Use a proven relational Database technology in order to provide critical information to applications on premises. |
 | Security | Encrypt all application data in transit and at rest to protect it from unauthorized disclosure. |
 | Resiliency | - Multi-site capability to support a disaster recovery strategy and solution that uses {{site.data.keyword.Bluemix_notm}} infrastructure DR capabilities that are combined with {{site.data.keyword.satelliteshort}} features. \n - Provide backups for MAS data retention. |
 | Service management | Customer wants a fully managed service |
