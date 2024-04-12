@@ -10,23 +10,27 @@ keywords: Satellite, location, Maximo, MAS
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
-
 # Architecture decisions for compute
-{: #compute-decisions}
+{: #compute}
+
+
+# Architecture decisions for compute in MAS
+{: #compute-decisions-mas}
 
 The following sections summarize the compute architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
 
-<!-- below is a placeholder for all compute domain decisions  Remove the domains that are not in scope.  If there are decisions that need to be added (e.g. platform dependent) add additional rows-->
+
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
 | Compute: Hosts | Hosts to run Maximo | Virtual machine (VM) \n  {{site.data.keyword.baremetal_short}} | VM | Most MAS applications run on a set of VMs that comprise a Red Hat OpenShift cluster. These VMs have separate IP addresses and appear as nodes in the Red Hat OpenShift cluster. In this solution, the VMs are managed {{site.data.keyword.satelliteshort}} hosts deployed in an on-premises location. |
 | | Operating System (OS) | RHEL 8.x (min) \n RH Core OS | RHEL 8.x | Typically running x86 architecture. Bring Your Own RHEL license. For the latest specs, see [{{site.data.keyword.satelliteshort}} Host System Requirements](/docs/satellite?topic=satellite-host-reqs) |
 | | RHOCP Control plane | 4 vCPU and 16 GB RAM \n  8 vCPU and 32 GB RAM \n  16 vCPU and 64 GB RAM \n  32 vCPU and 128 GB RAM | 8 vCPU and 32 GB RAM for Medium configuration | Minimum of 3 master nodes These master nodes also maintain an internal *etcd*  database that contains the Kubernetes resource definitions. |
-{: caption="Table 2. Architecture decisions for compute related to Maximo® Application Suite" caption-side="bottom"}
+{: caption="Table 1. Architecture decisions for compute related to Maximo® Application Suite" caption-side="bottom"}
 
 
+## Architecture decisions for compute in Satellite
+{: #compute-decisions-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
@@ -41,4 +45,4 @@ The following sections summarize the compute architecture decisions for the patt
 | | Red Hat OpenShift cluster: Workloads access | Red Hat OpenShift routes \n Node ports | Red Hat OpenShift routes | Expose apps to requests from the public or a private network with a hostname (from Red Hat OpenShift Ingress controller's external IP address). Support HTTP and HTTPS protocols only. If the worker node hosts have public network connectivity, the cluster is created with a public Ingress controller by default. If the worker node hosts have private network connectivity only, the cluster is created with a private Ingress controller by default. |
 | | | | Node ports | Expose non-HTTP(S) apps, for example, User Datagram Protocol or Transmission Control Protocol (TCP) apps, with a NodePort in the 30000-32767 range. |
 | | Red Hat OpenShift cluster: Workload isolation | Single cluster for all workloads \n Separate clusters per workload | Single cluster for all workloads | Single cluster for all workloads. Workload isolation is achieved through projects and namespaces within a cluster. For more information, see [Container network policies](/docs/openshift?topic=openshift-network_policies), and IAM access roles. |
-{: caption="Table 1. Architecture decisions for compute related to {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}
+{: caption="Table 2. Architecture decisions for compute related to {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}
