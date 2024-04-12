@@ -16,7 +16,7 @@ keywords: Satellite, location, Maximo, MAS
 
 The following sections summarize the security architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
 
-## Architecture decisions for data security - encryption
+## Architecture decisions for data security - encryption in MAS
 {: #data-encryption-mas}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -26,7 +26,7 @@ The following sections summarize the security architecture decisions for the pat
 | Data encryption of logs | Encrypt all operational and audit logs at rest to protect them from unauthorized disclosure | BYO encryption tool/service | BYO encryption tool/service |  |
 {: caption="Table 1. Data encryption architecture decisions for MAS" caption-side="bottom"}
 
-## Architecture decisions for data security - key management
+## Architecture decisions for data security - key management in MAS
 {: #kms-mas}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -35,7 +35,7 @@ The following sections summarize the security architecture decisions for the pat
 | Certificate management | Manage and deploy SSL/TLS certificates for Maximo apps | IBM Certificate Manager \n BYO Certificate Manager | IBM Certificate Manager | IBM Certificate Manager controls certificate management in Maximo Application Suite 8.8 and above. It is automatically installed as part of MAS [installation](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=dependencies-installing-certificate-manager) |
 {: caption="Table 2. Key management architecture decisions for MAS" caption-side="bottom"}
 
-## Architecture decisions for identity and access management
+## Architecture decisions for identity and access management in MAS
 {: #iam-mas}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -46,7 +46,7 @@ The following sections summarize the security architecture decisions for the pat
 | Privileged access management | Ensure that all operator actions are run securely through a bastion host | Bastion Host | Bastion Host | Bastion Host VM is used to provision the OCP bootstrap node. It is provisioned through SSH over a private network to securely access resources within IBM Cloud’s private network. [See](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-installation-topology) |
 {: caption="Table 3. Identity and access management architecture decisions for MAS" caption-side="bottom"}
 
-## Architecture decisions for application security
+## Architecture decisions for application security in MAS
 {: #app-security-mas}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -55,7 +55,7 @@ The following sections summarize the security architecture decisions for the pat
 {: caption="Table 4. Application security architecture decisions for MAS" caption-side="bottom"}
 
 
-## Architecture decisions for License management
+## Architecture decisions for License management in MAS
 {: #license management-mas}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -67,7 +67,7 @@ The following sections summarize the security architecture decisions for the pat
 
 The following sections summarize the security architecture decisions for the {{site.data.keyword.satellitelong_notm}} on-premises location.
 
-## Architecture decisions for data encryption
+## Architecture decisions for data encryption in Satellite
 {: #data-encryption-sat}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -81,7 +81,7 @@ The following sections summarize the security architecture decisions for the {{s
 {: caption="Table 6. Data encryption architecture decisions for Satellite" caption-side="bottom"}
 
 
-## Architecture decisions for identity and access management
+## Architecture decisions for identity and access management in Satellite
 {: #iam-sat}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -91,7 +91,7 @@ The following sections summarize the security architecture decisions for the {{s
 |  | Red Hat OpenShift clusters | - [IAM roles](/docs/openshift?topic=openshift-users) federated with a customer active directory \n [Kubernetes RBAC Roles](/docs/openshift?topic=openshift-users) | - {{site.data.keyword.Bluemix_notm}} IAM roles \n Kubernetes role-based access control (RBAC) roles | - Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} uses IAM [platform and service access roles](/docs/openshift?topic=openshift-users) to grant users access to the cluster \n - RBAC roles and cluster roles define a set of permissions for how users can interact with Kubernetes resources in the cluster. - RBAC roles can be applied to individual users, groups of users, or service accounts. For more granular access policies to perform specific Kubernetes actions, you can apply [custom RBAC policies](/docs/openshift?topic=openshift-users). |
 {: caption="Table 7. Identity and access management architecture decisions for Satellite" caption-side="bottom"}
 
-## Architecture decisions for application security
+## Architecture decisions for application security in Satellite
 {: #app-security-sat}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
@@ -101,18 +101,18 @@ The following sections summarize the security architecture decisions for the {{s
 
 Edge security generally protects against attacks and creates secure connections. It includes intrusion detection and prevention, URL and domain filtering, secure web gateway, zero trust network access (ZTNA), and other technologies, which help in isolating the {{site.data.keyword.satelliteshort}} location.
 
-## Architecture decisions for infrastructure and endpoint
+## Architecture decisions for infrastructure and endpoint in Satellite
 {: #infrastructure and endpoint-sat}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
+|---|---|---|---|---|
 | Network protection | Core network protection |  Subnets and firewall rules | Subnets and firewall rules | The customer is responsible for setting up and managing physical and virtual networks, subnets, and firewalls rules at the {{site.data.keyword.satelliteshort}} location to meet security and regulatory requirements. |
 {: caption="Table 9. Infrastructure and endpoint architecture decisions for Satellite" caption-side="bottom"}
 
-## Architecture decisions for threat detection and response
+## Architecture decisions for threat detection and response in Satellite
 {: #threat detection and response-sat}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
+|---|---|---|---|---|
 | Threat detection and response (TDR) |  Identify and neutralize threats | Bring your own security information and event management (SIEM) tool, for example, Splunk. \n [IBM X-Force Threat Management](https://www.ibm.com/products/xforce-exchange) | Bring your own SIEM tool, for example, Splunk. | For hybrid cloud environments, customers typically prefer to use their current on-premises SIEM tools. |
 {: caption="Table 10. Threat detection and response architecture decisions for Satellite" caption-side="bottom"}

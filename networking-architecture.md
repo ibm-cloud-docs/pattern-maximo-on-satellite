@@ -20,32 +20,29 @@ keywords:
 The following sections summarize the networking architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
 
 ## Architecture decisions for enterprise connectivity in MAS
-{: #enterprise-connectivity}
+{: #enterprise-connectivity-mas}
 
 The following are architecture decisions for enterprise connectivity for this design.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Enterprise connectivity | Highspeed connectivity | Direct Link 2.0 \n  VPN Gateway | Direct Link 2.0 | Provides private links ([dedicated or multi-tenant](https://cloud.ibm.com/docs/dl/getting-started#get-started-with-direct-link-connect)) and does not expose any traffic to the public network.
-Preferred option for regulated workloads with strict network isolation requirements  \n  Note. [Satellite Link](https://cloud.ibm.com/docs/satellite?topic=satellite-link-location-cloud) can offer that secure connection over Direct Link |
+| Enterprise connectivity | Highspeed connectivity | Direct Link 2.0 \n  VPN Gateway | Direct Link 2.0 | Provides private links [dedicated or multi-tenant](https://cloud.ibm.com/docs/dl/getting-started#get-started-with-direct-link-connect) and does not expose any traffic to the public network. Preferred option for regulated workloads with strict network isolation requirements  \n  Note. [Satellite Link](https://cloud.ibm.com/docs/satellite?topic=satellite-link-location-cloud) can offer that secure connection over Direct Link |
 {: caption="Table 1. Architecture decisions for enterprise connectivity" caption-side="bottom"}
 
 
-## Architecture decisions for network segmentation and isolation
-{: #network-segmentation-isolation}
+## Architecture decisions for network segmentation and isolation in MAS
+{: #network-segmentation-isolation-mas}
 
 The following are network segmentation and isolation architecture decisions for this design.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Network segmentation and isolation | Ability to provide network isolation | VPCs \n  Subnets \n  Security Groups \n  ACLs \n  [Container Network Policies](https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies)
- | Subnets, Security Groups, ACLs,
- Container Network Policies available in the {{site.data.keyword.satelliteshort}} location | Security groups (SGs) define groups of resources (which may be in different subnets) and assign uniform access rules to them. SGs can be used as virtual firewalls to control traffic flow to/from worker nodes. \n  ACLs define a list of rules that limit who can access a subnet within a VPC. ACLs can be used to control traffic flow to and from the OpenShift cluster subnets. \n  Container network policies restrict egress/ingress traffic and communication between applications. |
- | Firewall protection | Firewall | Juniper vSRX \n  Palo Alto \n  Fortigate | Juniper vSRX | Customer to provide FW license or have IBM provide it |
+| Network segmentation and isolation | Ability to provide network isolation | VPCs \n  Subnets \n  Security Groups \n  ACLs \n  [Container Network Policies](https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies) | Subnets, Security Groups, ACLs, Container Network Policies available in the {{site.data.keyword.satelliteshort}} location | Security groups (SGs) define groups of resources (which may be in different subnets) and assign uniform access rules to them. SGs can be used as virtual firewalls to control traffic flow to/from worker nodes. \n  ACLs define a list of rules that limit who can access a subnet within a VPC. ACLs can be used to control traffic flow to and from the OpenShift cluster subnets. \n  Container network policies restrict egress/ingress traffic and communication between applications. |
+| Firewall protection | Firewall | Juniper vSRX \n  Palo Alto \n  Fortigate | Juniper vSRX | Customer to provide FW license or have IBM provide it |
 {: caption="Table 2. Architecture decisions for network segmentation and isolation" caption-side="bottom"}
 
 
-## Architecture decisions for load balancing
+## Architecture decisions for load balancing in MAS
 {: #network-load-balancing-mas}
 
 The following are load balancing architecture decisions for this design.
@@ -53,7 +50,7 @@ The following are load balancing architecture decisions for this design.
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
 | Global load balancing | Load balancing over the public network across two regions in the event of an outage (DR) for failover to the other region. | Global Load Balancer (GLB) on-prem \n  IBM Cloud DNS Services | GLB on-prem | The [Global Load Balancer](https://cloud.ibm.com/docs/dns-svcs?topic=dns-svcs-global-load-balancers) on-prem distributes the traffic for apps accessed through the enterprise network. \n  Note: that the IBM Cloud DNS Services could be used |
-| Load balancing (private) | Load balancing workloads across multiple workload instances over the private network. | Dedicated VM \n  Commercial LB | Dedicated VM | Recommend using a dedicated VM for load balancing. If already availabe, use a commercial grade L4 load balancer, such as NGINX, F5, or other load balancer.|
+| Load balancing (private) | Load balancing workloads across multiple workload instances over the private network. | Dedicated VM \n  Commercial LB | Dedicated VM | Recommend using a dedicated VM for load balancing. If already availabe, use a commercial grade L4 load balancer, such as NGINX, F5, or other load balancer. |
 {: caption="Table 3. Architecture decisions for load balancing" caption-side="bottom"}
 
 
@@ -70,7 +67,7 @@ The following are load balancing architecture decisions for this design.
 
 
 
-## Architecture decisions for network segmentation and isolation
+## Architecture decisions for network segmentation and isolation in Satellite
 {: #network-segmentation-isolation-sat}
 
 
@@ -81,7 +78,7 @@ The following are load balancing architecture decisions for this design.
 
 
 
-## Architecture decisions for load balancing
+## Architecture decisions for load balancing in Satellite
 {: #network-load-balancing-sat}
 
 
@@ -92,7 +89,7 @@ The following are load balancing architecture decisions for this design.
 
 
 
-## Architecture decisions for domain name system
+## Architecture decisions for domain name system in Satellite
 {: #dns-sat}
 
 
