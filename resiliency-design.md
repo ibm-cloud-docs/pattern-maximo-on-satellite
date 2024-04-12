@@ -13,7 +13,7 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for resiliency
 {: #resiliency}
 
-# Resiliency design MAS
+## Resiliency design MAS
 {: #resiliency-design-mas}
 
 High availability is provided by the main components of IBM® Maximo® Application Suite (MAS). MAS core services are deployed automatically with any instance. These services handle the basic administration and configuration of the suite, and they store metadata in a deployed MongoDB in a three-node instance. See [MAS logical architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-logical-architecture)
@@ -39,7 +39,7 @@ Refer to the [MAS resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/
 Lastly, the persistent volume claim data can be copied from the pod to COS directly by creating a [network policy](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=pv-backing-up-persistent-volume-claim-data-cloud-object-storage). The network policy is needed because the MAS namespace blocks the egress network by default.
 
 
-# Resiliency design Satellite
+## Resiliency design Satellite
 {: #resiliency-design-sat}
 
 From an {{site.data.keyword.satellitelong_notm}} perspective, high availability can be achieved on 3 levels - {{site.data.keyword.satellitelong_notm}} Management plane, {{site.data.keyword.satellitelong_notm}} Control plane, IBM Cloud services. See [{{site.data.keyword.satelliteshort}} HA](https://cloud.ibm.com/docs/satellite?topic=satellite-ha).
