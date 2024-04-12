@@ -10,7 +10,8 @@ keywords: Satellite, location, Maximo, MAS
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
+# Architecture decisions for resiliency
+{: #resiliency}
 
 # Resiliency design MAS
 {: #resiliency-design-mas}
@@ -41,7 +42,7 @@ Lastly, the persistent volume claim data can be copied from the pod to COS direc
 # Resiliency design Satellite
 {: #resiliency-design-sat}
 
-From an {{site.data.keyword.satellitelong_notm}} perspective, high availability can be achieved on 3 levels - {{site.data.keyword.satellitelong_notm}} Management plane, {{site.data.keyword.satellitelong_notm}} Control plane, IBM Cloud services. See [{{site.data.keyword.satelliteshort}} Link](docs/satellite?topic=satellite-ha).
+From an {{site.data.keyword.satellitelong_notm}} perspective, high availability can be achieved on 3 levels - {{site.data.keyword.satellitelong_notm}} Management plane, {{site.data.keyword.satellitelong_notm}} Control plane, IBM Cloud services. See [{{site.data.keyword.satelliteshort}} HA](https://cloud.ibm.com/docs/satellite?topic=satellite-ha).
 
 
 | Component Level | Description | Comments |

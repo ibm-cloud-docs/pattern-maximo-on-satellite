@@ -10,9 +10,10 @@ keywords: Satellite, location, Maximo, MAS
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
+# Architecture decisions for storage
+{: #storage}
 
-# Architecture decisions for storage in MAS
+## Architecture decisions for storage in MAS
 {: #storage-decisions-mas}
 
 The following sections summarize the storage architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
@@ -24,7 +25,7 @@ The following sections summarize the storage architecture decisions for the patt
 {: caption="Table 1. Architecture decisions for storage in MAS" caption-side="bottom"}
 
 
-# Architecture decisions for storage in Satellite
+## Architecture decisions for storage in Satellite
 {: #storage-decisions-sat}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
@@ -33,8 +34,7 @@ The following sections summarize the storage architecture decisions for the patt
 |  | Satellite Hosts: Worker Nodes | -  Host node local storage \n- Remote storage  | Host node local storage | Virtual Machine disks: minimum 10 GB Boot disk (25 GB is recommended) plus 100 GB secondary disk (unformatted). Additional disks/size depend on storage requirements for satellite-enabled services running in the Satellite Location. See AD for Satellite Enabled Services. See [Satellite Host Storage Requirements](/docs/satellite?topic=satellite-reqs-host-storage) |
 | Storage | Satellite Services Storage: OpenShift (Customer Workloads) | -  File Storage \n- Block Storage \n- Object Storage \n- Software Defined Storage (SDS) | Software Defined Storage (SDS) | SDS for container environments provide highly available and scalable storage and support file, block, and cloud object storage types to meet the requirements of various containerized workloads. |
 | | Software Defined Storage | -  OpenShift Data Foundation (ODF) \n- Portworx Enterprise | OpenShift Data Foundation (ODF) | SDS for container environments that supports file, block, and object storage types, high availability and data replication and encryption. Storage template available for integration/use with satellite-enabled services. |
-|  | Satellite Services Storage Template: OpenShift | -  [Available Storage Templates List](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) \n- Other Storage (BYO Driver) | Storage Template | Satellite storage templates are provided and tested by IBM or third-party vendors, check the following link to get the supported providers. See [document](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) for details. |
-|  | Satellite Services Storage Template: Other Satellite-Enabled Services | [Storage Templates](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) | Based on Satellite Enabled Service | Use Storage Template supported by the Satellite-Enabled Service; one Storage Template for each service. This reference solution doesn’t include any other Satellite-enabled services. |
+|  | Satellite Services Storage Template: OpenShift | -  [Available Storage Templates List](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) \n- Other Storage (BYO Driver) | Storage Template | Satellite storage templates are provided and tested by IBM or third-party vendors, check the following link to get the supported providers. See [document](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) for details. \n This reference solution doesn’t include any other Satellite-enabled services. |
 |  | Storage: Backup | | | |
 | | Satellite Control Plane | Cloud Object Storage (COS) | Cloud Object Storage (COS) | A customer-owned COS bucket must be provided to be used for IBM-managed backups of the Satellite location control plane data. See [Creating Satellite Locations](/docs/satellite?topic=satellite-locations) for details. |
 {: caption="Table 2. Architecture decisions for storage in Satellite" caption-side="bottom"}
