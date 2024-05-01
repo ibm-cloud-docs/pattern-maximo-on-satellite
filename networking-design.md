@@ -15,12 +15,14 @@ keywords: Satellite, location, Maximo, MAS
 # Network design
 {: #network-design}
 
-Networking is a key aspect of any cloud deployment but specifically for this pattern of deploying Maximo® Application Suite (MAS) on IBM Cloud Satellite in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, etc., but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. And from a MAS perspecitve establishing direct link (DL), or VPN connectivity is key.
+Networking is a key aspect of any cloud deployment but specifically for this pattern of deploying Maximo® Application Suite (MAS) on IBM Cloud Satellite in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, etc., but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. From a MAS perspective performance is key.
 
 \n  Listed below are some of the key requirements from a network perspective:
 
-- Hosts must have minimum network bandwidth connectivity of 100 Mbps, with 1 Gbps preferred.
-- Host IP addresses must remain static and cannot change over time.
+- For MAS, network and storage should work together ensuring a disk throughput > 200 MB/s with a storage class delivering 100+ IOPS.
+- Establish connectivity either Direct Link (DL) or VPN connectivity.
+- Satellite Hosts must have minimum network bandwidth connectivity of 100 Mbps, with 1 Gbps preferred.
+- Satellite Host IP addresses must remain static and cannot change over time.
 - All {{site.data.keyword.satelliteshort}} hosts must have an IPv4 address since {{site.data.keyword.satelliteshort}} does not support IPv6. For more information, see [Host network requirements](/docs/satellite?topic=satellite-reqs-host-network).
 
 

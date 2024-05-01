@@ -30,7 +30,7 @@ The pattern follows the {{site.data.keyword.IBM}} architecture framework and pro
 
 •	Will highlight what MAS customers look for, namely secure fast responses. In keeping with that focus, the pattern addresses two key aspects of an {{site.data.keyword.satellitelong}} solution – network connectivity and security.
 
-The objective of this pattern document is to serve as a guide to meet typical customer requirements and provide a base reference solution for a distributed cloud solution that is secure and resilient especially for customers moving from Maximo 7.x to MAS 8.x.
+The objective of this pattern document is to serve as a guide to meet typical customer requirements and provide a base reference solution for a distributed cloud solution that is secure and resilient especially for customers moving from Maximo v7.x to MAS v8.x.
 
 
 ## Major components of the solution
@@ -40,6 +40,8 @@ The objective of this pattern document is to serve as a guide to meet typical cu
 - The {{site.data.keyword.satelliteshort}} localtion management plane components along with the services that are required and available on {{site.data.keyword.Bluemix_notm}}.
 - The {{site.data.keyword.satelliteshort}}-enabled services available at a {{site.data.keyword.satelliteshort}} location.
 
-The Maximo Application Suite includes applications, such as Maximo Manage, Maximo Monitor, Maximo Health, Maximo Predict, Maximo Visual Inspection, Maximo Assist, and Maximo MRO Inventory Optimization. See [here](https://www.ibm.com/docs/en/mas-cd/maximo-manage/continuous-delivery?topic=SSLPL8_cd/com.ibm.mam.doc/upgrade/c_mas_architecture.htm). Maximo® Application Suite includes an entitlement to use Cloud Pak for Data.
+The Maximo Application Suite includes applications, such as Maximo Manage, Maximo Monitor, Maximo Health, Maximo Predict, Maximo Visual Inspection and Maximo Assist. Note, Maximo MRO Inventory Optimization is a SaaS offering and not included in MAS. See [here](https://www.ibm.com/docs/en/mas-cd/maximo-manage/continuous-delivery?topic=SSLPL8_cd/com.ibm.mam.doc/upgrade/c_mas_architecture.htm).
 
-In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which IBM Maximo® Application Suite (MAS) v8.x would be set up at that location. This pattern is extremely useful for customers who are thinking of migrating from Maximo 7.x to MAS 8.x.
+Maximo® Application Suite includes an entitlement to use Cloud Pak for Data (CP4D) and a rela inted Red Hat OpenShift subscription extended to cover MAS. There is also the option not to have the OpenShift subscription included, for those customers that already have an OpenShift subscription.
+
+In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which IBM Maximo® Application Suite (MAS) v8.x would be set up at that location. This could serve as an upgrade pattern for customers who are currently using Maximo EAM v7. The equivalent functionality available is Maximo® Application Suite (MAS) v8 Manage.
