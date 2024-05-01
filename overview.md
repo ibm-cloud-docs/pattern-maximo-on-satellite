@@ -21,7 +21,7 @@ The objective of this pattern is to provide a solution design for……. -->
 The objective of this document is to provide an IBM Solution Design for the deployment of Maximo® Application Suite (MAS) on IBM Cloud Satellite in an on-premises Satellite location. IBM Cloud Satellite is a software platform that lets you provision managed cloud services across any environment. IBM Maximo® Application Suite (MAS) is a set of applications for asset monitoring, management, predictive maintenance, and reliability planning.
 This document describes the configuration of an IBM Cloud Satellite location, that would be on-premises, where MAS would be deployed.
 
-The pattern follows the {{site.data.keyword.IBM}} architecture framework and provides a solution design from the standard {{site.data.keyword.Bluemix_notm}} deployment architecture for these two facets of a {{site.data.keyword.satelliteshort}} solution:
+The pattern follows the {{site.data.keyword.IBM}} Architecture Design Framework and provides a solution design from the standard {{site.data.keyword.Bluemix_notm}} deployment architecture for these two facets of a {{site.data.keyword.satelliteshort}} solution:
 
 - Managed from: The managed from environment is {{site.data.keyword.Bluemix_notm}}.
 - Managed to: The managed to environment is the {{site.data.keyword.satelliteshort}} location.
