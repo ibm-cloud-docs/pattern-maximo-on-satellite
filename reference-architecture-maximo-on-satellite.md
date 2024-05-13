@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-15"
+lastupdated: "2024-05-09"
 
 subcollection: pattern-maximo-on-satellite
 
@@ -40,7 +40,7 @@ The following line inserts all the attribute definitions. Don't delete.
 {: toc-use-case="Enterprise asset management"}
 {: toc-version="1.0"}
 
-IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern basically involves:
+{{site.data.keyword.IBM}} Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern involves the following:
 - An {{site.data.keyword.satellitelong_notm}} location configured on-premises
 - Configuring MAS at that {{site.data.keyword.satelliteshort}} location
 
@@ -49,55 +49,48 @@ Due to privacy, regulatory, or compliance reasons, customers might not want to s
 ## Architecture diagram
 {: #architecture-diagram}
 
-Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture where the {{site.data.keyword.satelliteshort}} location is deployed on-premises and MAS installed at that location.
+Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture where the {{site.data.keyword.satelliteshort}} location is deployed on-premises and MAS is installed at that location.
 
 ![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Figure 1. Solution architecture showing MAS setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
 
-Figure 2 shows the components in a MAS architecture. A detailed description of the MAS architecture can be found [here](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=models-maximo-application-suite-architecture).
+Figure 2 shows the components in a MAS architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=models-maximo-application-suite-architecture){: external}.
 
 ![MAS architecture](/images/MAS-architecture.png){: caption="Figure 2. IBM Maximo Application Suite architecture" caption-side="bottom"}
 
-## Design scope <!-- H2 -->
+## Design scope
 {: #design-scope}
 
 The base {{site.data.keyword.satellitelong_notm}} solution covers design considerations and architecture decisions for the following aspects and domains:
 
-- **Application Platform:** Enterprise Applications
+- Application Platform: Enterprise Applications
 
-- **Compute:** Bare Metal, Virtual Servers, Virtualization, Containers
+- Compute: Bare Metal, Virtual Servers, Virtualization, Containers
 
-- **Storage:** Primary Storage, Backup Storage
+- Storage: Primary Storage, Backup Storage
 
-- **Networking:** Enterprise Connectivity, Network Segmentation
+- Networking: Enterprise Connectivity, Network Segmentation
 
-- **Data:** Databases & Data Storage (highlighting the Data Residency requirement)
+- Data: Databases & Data Storage (highlighting the Data Residency requirement)
 
-- **Security:** Data Security, Identity and Access Management, Infrastructure and Endpoint
+- Security: Data Security, Identity and Access Management, Infrastructure and Endpoint
 
-- **Resiliency:** Backup and Restore, High Availability
+- Resiliency: Backup and Restore, High Availability
 
-- **Service Management:** Monitoring, Logging, Auditing/Tracking
+- Service Management: Monitoring, Logging, Auditing/Tracking
 
 The [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas to consider for any enterprise solution. It can be used as a guide to make the necessary design and component choices. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
-In Figure 2, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
+In Figure 3, you can view the domains that are relevant in a Maximo Application Suite on {{site.data.keyword.satellitelong_notm}} solution.
 
 ![MAS on {{site.data.keyword.satelliteshort}} Architecture Design Framework](/images/MAS-Satellite-AF.svg){: caption="Figure 3. MAS on {{site.data.keyword.satellitelong_notm}} Architecture Design Framework" caption-side="bottom"}
-
-The Architecture Design Framework, described in [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
-
-Figure 3 shows the domains that are covered in this solution.
-
 
 ## Solution components and requirements for {{site.data.keyword.satelliteshort}} location on-premises
 {: #solution-components-on-prem}
 
 Review the following requirements and components for configuring MAS in an on-premises {{site.data.keyword.satelliteshort}} location.
 
-## Requirements <!-- H2 -->
+## Requirements
 {: #requirements}
-
-<!-- insert the requirements table, below is an example -->
 
 The following table represents a baseline set of requirements, which are applicable to many clients who are looking to upgrade from Maximo 7.x to Maximo Application Suite (MAS) 8.x. Deployment of MAS on {{site.data.keyword.satellitelong_notm}} location serves as the first step.
 
