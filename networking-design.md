@@ -15,7 +15,7 @@ keywords: Satellite, location, Maximo, MAS
 # Network design
 {: #network-design}
 
-Networking is a key aspect of any cloud deployment. Consider the following network design information for deploying Maximo® Application Suite (MAS) on IBM Cloud Satellite in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. From a MAS perspective, performance is key.
+Networking is a key aspect of any cloud deployment. Consider the following network design information for deploying Maximo® Application Suite (MAS) on {{site.data.keyword.Bluemix_notm}} Satellite in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. From a MAS perspective, performance is key.
 
 Review the following key requirements from a network perspective:
 

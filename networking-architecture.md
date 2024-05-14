@@ -48,7 +48,7 @@ The following are load balancing architecture decisions for this design.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Global load balancing | Load balancing over the public network across two regions if an outage occurs, disaster recovery, for failover to the other region. | Global load balancer (GLB) on-premises \n IBM Cloud DNS Services | Global load balancer on-premises | The [Global load balancer](/docs/dns-svcs?topic=dns-svcs-global-load-balancers) on-premises distributes the traffic for apps that are accessed through the enterprise network. \n The IBM Cloud DNS Services can be used |
+| Global load balancing | Load balancing over the public network across two regions if an outage occurs, disaster recovery, for failover to the other region. | Global load balancer (GLB) on-premises \n {{site.data.keyword.Bluemix_notm}} DNS Services | Global load balancer on-premises | The [Global load balancer](/docs/dns-svcs?topic=dns-svcs-global-load-balancers) on-premises distributes the traffic for apps that are accessed through the enterprise network. \n The {{site.data.keyword.Bluemix_notm}} DNS Services can be used |
 | Load balancing (private) | Load balancing workloads across multiple workload instances over the private network. | Dedicated VM \n Commercial load balancer | Dedicated VM | It's recommended to use a dedicated VM for load balancing. If already available, use a commercial grade L4 load balancer, such as NGINX, F5, or other load balancer. |
 {: caption="Table 3. Architecture decisions for load balancing" caption-side="bottom"}
 
