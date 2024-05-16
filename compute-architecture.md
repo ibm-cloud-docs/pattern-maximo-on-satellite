@@ -13,6 +13,7 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for compute
 {: #compute}
 
+There are 2 sets of architectural decisions in this pattern, one pertains to {{site.data.keyword.satellitelong_notm}} and the other to {{site.data.keyword.prodname_imas_full_notm}} (MAS).
 
 ## Architecture decisions for compute in MAS
 {: #compute-decisions-mas}
@@ -24,9 +25,9 @@ The following sections summarize the compute architecture decisions for the patt
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
 | Compute: Hosts | Hosts to run Maximo | Virtual machine (VM) \n  {{site.data.keyword.baremetal_short}} | VM | Most MAS applications run on a set of VMs that comprise a Red Hat OpenShift cluster. These VMs have separate IP addresses and appear as nodes in the Red Hat OpenShift cluster. In this solution, the VMs are managed {{site.data.keyword.satelliteshort}} hosts deployed in an on-premises location. |
-| | Operating System (OS) | RHEL 8.x (min) \n RH Core OS | RHEL 8.x | Typically running x86 architecture. Bring Your Own RHEL license. For the latest specs, see [{{site.data.keyword.satelliteshort}} Host System Requirements](/docs/satellite?topic=satellite-host-reqs) |
-| | RHOCP Control plane | 4 vCPU and 16 GB RAM \n  8 vCPU and 32 GB RAM \n  16 vCPU and 64 GB RAM \n  32 vCPU and 128 GB RAM | 8 vCPU and 32 GB RAM for Medium configuration | Minimum of 3 master nodes These master nodes also maintain an internal *etcd*  database that contains the Kubernetes resource definitions. |
-| Compute: Containers | Containers| Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} \n  Kubernetes service | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} | Red Hat OpenShift on {{site.data.keyword.satellitelong_notm}} provides a managed container platform with automatic provisioning, backup and updates of master nodes and etcd storage. |
+| | Operating System (OS) | Red Hat Enterprise Linux (RHEL) 8.x (min) \n RH Core OS | RHEL 8.x | Typically running x86 architecture. Bring Your Own RHEL license. For the latest specs, see [{{site.data.keyword.satelliteshort}} Host System Requirements](/docs/satellite?topic=satellite-host-reqs) |
+| | RHOCP Control plane | 4 vCPU and 16 GB RAM \n  8 vCPU and 32 GB RAM \n  16 vCPU and 64 GB RAM \n  32 vCPU and 128 GB RAM | 8 vCPU and 32 GB RAM for Medium configuration | Minimum of 3 control nodes These control nodes also maintain an internal *etcd*  database that contains the Kubernetes resource definitions. See [etcd](https://cloud.ibm.com/docs/containers?topic=containers-encryption)|
+| Compute: Containers | Containers| Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} \n  Kubernetes service | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} | Red Hat OpenShift on {{site.data.keyword.satellitelong_notm}} provides a managed container platform with automatic provisioning, backup and updates of control nodes and etcd storage. |
 {: caption="Table 1. Architecture decisions for compute related to Maximo® Application Suite" caption-side="bottom"}
 
 
