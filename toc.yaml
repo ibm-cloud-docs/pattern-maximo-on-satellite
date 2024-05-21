@@ -12,7 +12,7 @@ toc:
     content-type: deployment
     href: /docs/pattern-maximo-on-satellite
     path: pattern-maximo-on-satellite
-    description: Deployment considerations for configuring Maximo Application Suite in an IBM Cloud Satellite on-premises location
+    description: Deployment considerations for configuring Maximo Application Suite in an {{site.data.keyword.Bluemix_notm}} Satellite on-premises location
     label: Deploy Maximo in Satellite on-premises location
 
   entries:
