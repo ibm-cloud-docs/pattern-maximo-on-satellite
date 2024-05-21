@@ -13,40 +13,43 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for service management
 {: #service}
 
-The following sections summarize the compute architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
+There are 2 sets of architectural decisions in this pattern, one pertains to {{site.data.keyword.satellitelong_notm}} and the other to {{site.data.keyword.prodname_imas_full_notm}}.
 
-## Architecture decisions for monitoring in MAS
+## Architecture decisions for monitoring in {{site.data.keyword.prodname_imas_short}}
 {: #monitoring-mas}
+
+The following are architecture decisions about service management for {{site.data.keyword.prodname_imas_full_notm}}.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Monitoring | Monitor MAS | Red Hat® OpenShift® cluster monitoring + Grafana | OpenShift® cluster monitoring + Grafana | MAS applications provide application level metrics and dashboards for monitoring application health and performance. \n RHOCP is preconfigured with a Grafana instance for visualizing Prometheus metrics from compute nodes in the cluster. |
+| Monitoring | Monitor {{site.data.keyword.prodname_imas_full_notm}} | Red Hat® OpenShift® cluster monitoring + Grafana | OpenShift® cluster monitoring + Grafana | {{site.data.keyword.prodname_imas_full_notm}} applications provide application level metrics and dashboards for monitoring application health and performance. \n RHOCP is preconfigured with a Grafana instance for visualizing Prometheus metrics from compute nodes in the cluster. |
 | Operational monitoring of cloud infrastructure and services | Monitor system health to detect issues that might impact the availability of the system and application. | - {{site.data.keyword.Bluemix_notm}} Monitoring \n - BYO Monitoring Tool | {{site.data.keyword.Bluemix_notm}} Monitoring | {{site.data.keyword.Bluemix_notm}} Monitoring collects and monitors operational metrics for cloud infrastructure as well as the cloud platform and services and provides a single view for all metrics |
-{: caption="Table 1. Architecture decisions for monitoring in MAS" caption-side="bottom"}
+{: caption="Table 1. Architecture decisions for monitoring in {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
 
 
-## Architecture decisions for logging and audit logging in MAS
+## Architecture decisions for logging and audit logging in {{site.data.keyword.prodname_imas_short}}
 {: #auditing-mas}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
 | Audit logging | Aggregate and securely store audit logs | - Forward logs from Red Hat® OpenShift® to an external system \n - Use Red Hat® OpenShift® logging subsystem | Forward logs to [external system](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=administering-audit-logging-in-maximo-application-suite) | Most enterprises have external logging system |
 | Log monitoring of DB | Monitor database logs to detect issues that might impact deployment/availability of databases | Database logs | DB logs | Use the DB logs along with {{site.data.keyword.Bluemix_notm}} Logging to get more DB-specific log information. |
-{: caption="Table 2. Architecture decisions for logging & audit logging in MAS" caption-side="bottom"}
+{: caption="Table 2. Architecture decisions for logging & audit logging in {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
 
-## Architecture decisions for alerting in MAS
+## Architecture decisions for alerting in {{site.data.keyword.prodname_imas_short}}
 {: #alerting}
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 |---|---|---|---|---|
-| Operational alerts | Provide a mechanism to identify and send notifications about operational issues that are found across application and infrastructure. | - MAS built-in functionality  \n - {{site.data.keyword.Bluemix_notm}} Monitoring +  {{site.data.keyword.Bluemix_notm}} Logging + Event Notifications | MAS built-in functionality. | MAS has the ability to configure services to automatically restart after a failure and keep multiple instances of the service in operation. There's no need to define an alert and wait for it to notify operations personnel. |
-{: caption="Table 3. Architecture decisions for alerting in MAS" caption-side="bottom"}
-
+| Operational alerts | Provide a mechanism to identify and send notifications about operational issues that are found across application and infrastructure. | - {{site.data.keyword.prodname_imas_full_notm}} built-in functionality  \n - {{site.data.keyword.Bluemix_notm}} Monitoring +  {{site.data.keyword.Bluemix_notm}} Logging + Event Notifications | {{site.data.keyword.prodname_imas_full_notm}} built-in functionality. | {{site.data.keyword.prodname_imas_full_notm}} has the ability to configure services to automatically restart after a failure and keep multiple instances of the service in operation. There's no need to define an alert and wait for it to notify operations personnel. |
+{: caption="Table 3. Architecture decisions for alerting in {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
 
 
 
 ## Architecture decisions for monitoring in Satellite
 {: #monitoring-sat}
+
+The following are architecture decisions about security for {{site.data.keyword.satellitelong_notm}}.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|

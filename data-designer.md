@@ -15,10 +15,10 @@ keywords: Satellite, location, Maximo, MAS
 # Data design
 {: #data-design}
 
-IBM® Maximo® Application Suite (MAS) is all about data since it's primarily an Enterprise Asset Management software. As an application suite, it now has a set of applications for asset monitoring, management, predictive maintenance, and reliability planning.
+{{site.data.keyword.prodname_imas_full_notm}} is all about data since it's primarily an Enterprise Asset Management (EAM) software. As an application suite, it now has a set of applications for asset monitoring, management, predictive maintenance, and reliability planning.
 
-MongoDB is a prerequisite for Maximo Application Suite. It is used as the data dictionary for Maximo Application Suite and its applications. It's also used as the default user registry. The MongoDB instance can run in the Red Hat OpenShift®cluster or externally to it.
+MongoDB is a prerequisite for {{site.data.keyword.prodname_imas_short}}. It is used as the data dictionary for {{site.data.keyword.prodname_imas_short}} and its applications. It's also used as the default user registry. The MongoDB instance can run in the Red Hat OpenShift® cluster or externally to it.
 
-IBM User Data Services was used to collect, transform, and transmit Maximo usage data. Starting in IBM Maximo Application Suite 8.11.7 and 8.10.10, the User Data Services (UDS) is replaced with IBM Data Reporter Operator (DRO). Data Reporter Operator is a prerequisite software for Maximo. It has a reduced the operational footprint and cost than IBM User Data Services.
+IBM User Data Services was used to collect, transform, and transmit Maximo usage data. Starting in {{site.data.keyword.prodname_imas_full_notm}} 8.11.7 and 8.10.10, the User Data Services (UDS) is replaced with IBM Data Reporter Operator (DRO). Data Reporter Operator is a prerequisite software for {{site.data.keyword.prodname_imas_short}}. It has a reduced the operational footprint and cost than IBM User Data Services.
 
-Many enterprises want to keep their data on-premises. This maximo-on-satellite pattern helps enterprises do that by deploying Maximo Application Suite in an on-premises {{site.data.keyword.satelliteshort}} location.
+Many enterprises want to keep their data on-premises. This maximo-on-satellite pattern helps enterprises do that by deploying {{site.data.keyword.prodname_imas_short}} in an on-premises {{site.data.keyword.satelliteshort}} location.

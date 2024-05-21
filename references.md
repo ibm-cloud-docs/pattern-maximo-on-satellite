@@ -16,7 +16,7 @@ keywords: Satellite, location, Maximo, MAS
 # References
 {: #references}
 
-Review the following references to guide you through the IBM® Maximo® Application Suite (MAS) on {{site.data.keyword.satelliteshort}} pattern.
+Review the following references to guide you through the deployment of {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satelliteshort}} pattern.
 
 - [Maximo Application Suite docs](https://www.ibm.com/docs/en/mas-cd/continuous-delivery){: external}
 - [Maximo Application Suite installation](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=installing){: external}

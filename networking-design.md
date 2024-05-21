@@ -15,15 +15,15 @@ keywords: Satellite, location, Maximo, MAS
 # Network design
 {: #network-design}
 
-Networking is a key aspect of any cloud deployment. Consider the following network design information for deploying Maximo® Application Suite (MAS) on {{site.data.keyword.Bluemix_notm}} Satellite in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. From a MAS perspective, performance is key.
+Networking is a key aspect of any cloud deployment. Consider the following network design information for deploying {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satellitelong_notm}} in an on-premises Satellite location. There are many requirements to consider like security, resiliency, latency, throughput, but the two critical ones from a {{site.data.keyword.satelliteshort}} perspective are bandwidth connectivity and certain reserved IPs. From a MAS perspective, performance is key.
 
 Review the following key requirements from a network perspective:
 
-- For Maximo Application Suite, network and storage should work together ensuring a disk throughput > 200 MB/s with a storage class delivering 100+ IOPS.
+- For {{site.data.keyword.prodname_imas_short}}, network and storage should work together ensuring a disk throughput > 200 MB/s with a storage class delivering 100+ IOPS.
 - Establish connectivity with either Direct Link (DL) or VPN connectivity.
 - Satellite Hosts must have a minimum network bandwidth connectivity of 100 Mbps, with 1 Gbps preferred.
 - Satellite Host IP addresses must remain static and cannot change over time.
-- All {{site.data.keyword.satelliteshort}} hosts must have an IPv4 address since {{site.data.keyword.satelliteshort}} does not support IPv6. 
+- All {{site.data.keyword.satelliteshort}} hosts must have an IPv4 address since {{site.data.keyword.satelliteshort}} does not support IPv6.
 
 For more information, see [Host network requirements](/docs/satellite?topic=satellite-reqs-host-network).
 

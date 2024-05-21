@@ -12,29 +12,33 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for resiliency
 {: #resiliency-architecture}
 
-The following sections summarize the compute architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.
+The following sections summarize the resiliency architecture decisions for the pattern that involves deployment of {{site.data.keyword.prodname_imas_full_notm}} on an {{site.data.keyword.satellitelong_notm}} on-premises location.
 
-## Architecture decisions for high availability in MAS
+## Architecture decisions for high availability in {{site.data.keyword.prodname_imas_short}}
 {: #high-availability-mas}
+
+The following are architecture decisions about resiliency for {{site.data.keyword.prodname_imas_full_notm}}.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| High availability deployment | - Ensure availability of resources (MAS nodes) if an outage occurs. \n - Support Service Level Agreement(SLA) targets for availability | - Single node deployment \n - Multi-node deployment	| Multi-node deployment	| Configure with a minimum of 3 hosts. Place host machines in physically different racks. Power, network, and storage isolation and even separate data centers are recommended for protection against outages for any of these components. \n There are application services and data services that need to be spread across nodes or zones with an adequate level of replication configured. In addition to Suite services, each data service in MAS has different replication features. For more information, see [MAS resiliency](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components){: external}. |
+| High availability deployment | - Ensure availability of resources ({{site.data.keyword.prodname_imas_short}} nodes) if an outage occurs. \n - Support Service Level Agreement(SLA) targets for availability | - Single node deployment \n - Multi-node deployment	| Multi-node deployment	| Configure with a minimum of 3 hosts. Place host machines in physically different racks. Power, network, and storage isolation and even separate data centers are recommended for protection against outages for any of these components. \n There are application services and data services that need to be spread across nodes or zones with an adequate level of replication configured. In addition to Suite services, each data service in {{site.data.keyword.prodname_imas_short}} has different replication features. For more information, see [{{site.data.keyword.prodname_imas_short}} resiliency](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components){: external}. |
 | High Availability infrastructure | - Ensure availability of infrastructure resources for Red Hat OpenShift cluster if an outage occurs \n - Support SLA targets for infrastructure availability | - Single node Red Hat OpenShift \n - Multi-node Red Hat OpenShift cluster | Multi-node Red Hat OpenShift cluster | - Configure Red Hat OpenShift clusters with a minimum of 3 worker nodes and 3 spares. \n - Size the worker nodes in each zone at 50% of required CPU capacity for workloads to meet 100% capacity requirements in case of rack failure. \n - Use pod topology spread constraints. |
-{: caption="Table 1. High availability architecture decisions for MAS" caption-side="bottom"}
+{: caption="Table 1. High availability architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
-## Architecture decisions for backup and restore in MAS
+## Architecture decisions for backup and restore in {{site.data.keyword.prodname_imas_short}}
 {: #backup-and-restore-mas}
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Backup |  Persistence store data needs to be backed up | - Use backup capabilities of each persistence store \n - {{site.data.keyword.IBM_notm}} managed backups in {{site.data.keyword.cos_full_notm}} | Use backup capabilities of each persistence store | To restore the MAS instance, you must deploy or activate another database instance, and then restore the data from a backup. For more information, see [MAS backup & restore](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=administering-backing-up-restoring-maximo-application-suite){: external}. |
+| Backup |  Persistence store data needs to be backed up | - Use backup capabilities of each persistence store \n - {{site.data.keyword.IBM_notm}} managed backups in {{site.data.keyword.cos_full_notm}} | Use backup capabilities of each persistence store | To restore the {{site.data.keyword.prodname_imas_short}} instance, you must deploy or activate another database instance, and then restore the data from a backup. For more information, see [{{site.data.keyword.prodname_imas_short}} backup & restore](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=administering-backing-up-restoring-maximo-application-suite){: external}. |
 | Backup | Backup Red Hat OpenShift clusters | - Roll your own backup strategy \n - Use the underlying {{site.data.keyword.satelliteshort}} backup and restore capabilities | Use the underlying {{site.data.keyword.satelliteshort}} backup and restore capabilities | The {{site.data.keyword.satelliteshort}} platform handles backup and restore tasks. \n  Look at restoring data to a different Red Hat OpenShift cluster if there is an outage. |
-{: caption="Table 2. Backup and restore architecture decisions for MAS" caption-side="bottom"}
+{: caption="Table 2. Backup and restore architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 
 ## Architecture decisions for high availability in Satellite
 {: #high-availability-sat}
+
+The following are architecture decisions about security for {{site.data.keyword.prodname_satellitelong_notm}}.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
