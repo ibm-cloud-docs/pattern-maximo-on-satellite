@@ -12,8 +12,8 @@ toc:
     content-type: deployment
     href: /docs/pattern-maximo-on-satellite
     path: pattern-maximo-on-satellite
-    description: Deployment considerations for configuring {{site.data.keyword.prodname_imas_short}} core in an {{site.data.keyword.satellitelong_notm}} on-premises location
-    label: Deploy {{site.data.keyword.prodname_imas_short}} core in Satellite on-premises location
+    description: Deployment considerations for configuring Maximo Application Suite core in an IBM Cloud Satellite on-premises location
+    label: Deploy Maximo Application Suite core in Satellite on-premises location
 
   entries:
   - navgroup:
