@@ -13,9 +13,9 @@ keywords: Satellite, location, Maximo, MAS
 # Architecture decisions for compute
 {: #compute}
 
-There are 2 sets of architectural decisions in this pattern, one pertains to {{site.data.keyword.satellitelong_notm}} and the other to {{site.data.keyword.prodname_imas_full_notm}} (MAS).
+There are 2 sets of architectural decisions in this pattern, one pertains to {{site.data.keyword.satellitelong_notm}} and the other to {{site.data.keyword.prodname_imas_full_notm}}.
 
-## Architecture decisions for compute in MAS
+## Architecture decisions for compute in {{site.data.keyword.prodname_imas_short}}
 {: #compute-decisions-mas}
 
 The following sections summarize the compute architecture decisions for the pattern that involves deployment of Maximo® Application Suite (MAS) on an {{site.data.keyword.satellitelong_notm}} on-premises location.

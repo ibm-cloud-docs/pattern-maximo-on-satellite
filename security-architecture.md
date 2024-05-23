@@ -16,7 +16,7 @@ keywords: Satellite, location, Maximo, MAS
 There are 2 sets of architectural decisions in this pattern, one pertains to {{site.data.keyword.satellitelong_notm}} and the other to {{site.data.keyword.prodname_imas_full_notm}}.
 
 
-## Architecture decisions for data security: Encryption in MAS
+## Architecture decisions for data security: Encryption in {{site.data.keyword.prodname_imas_short}}
 {: #data-encryption-mas}
 
 The following are architecture decisions about security for {{site.data.keyword.prodname_imas_full_notm}}.
@@ -26,7 +26,7 @@ The following are architecture decisions about security for {{site.data.keyword.
 | Encryption of databases | Encrypt data in database to protect it from unauthorized disclosure | - Use system-generated values  \n - Bring Your Own encryption keys | Use system-generated values | Encryption keys and encryption algorithms are specified when configuring {{site.data.keyword.prodname_imas_full_notm}} Manage. Choose the fields that require [security](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=encryption-database-overview){: external}. The secret is automatically generated. |
 | Data encryption of backups | Encrypt and compress backup data to protect it from unauthorized access | - Use *tar* command  n\ - Bring Your Own encryption tool and service | Bring Your Own encryption tool and service | The admin can run the *tar* [command](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=procedures-encrypting-compressing-backups){: external}. Remember to decrypt when restoring data from backup. |
 | Data encryption of logs | Encrypt all operational and audit logs at rest to protect them from unauthorized disclosure. | Bring Your Own encryption tool and service | Bring Your Own encryption tool and service |  |
-{: caption="Table 1. Data encryption architecture decisions for {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
+{: caption="Table 1. Data encryption architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 ## Architecture decisions for data security: Key management in {{site.data.keyword.prodname_imas_short}}
 {: #kms-mas}
@@ -35,7 +35,7 @@ The following are architecture decisions about security for {{site.data.keyword.
 |---|---|---|---|---|
 | Key lifecycle management and hardware security modules | Encrypt data at rest and in transit by using customer-managed keys to protect them from unauthorized access.  | Key Protect \n Hyper Protect Crypto Services (HPCS) | Key Protect | Key Protect is recommended for applications that need to comply with regulations requiring encryption of data with customer-managed keys. Key Protect provides key management services by using a shared multi-tenant FIPS 140-2 Level 3 certified hardware security modules. |
 | Certificate management | Manage and deploy SSL/TLS certificates for Maximo apps | IBM Certificate Manager \n Bring Your Own Certificate Manager | IBM Certificate Manager | IBM Certificate Manager controls certificate management in {{site.data.keyword.prodname_imas_full_notm}} 8.8 and above. It is automatically installed as part of {{site.data.keyword.prodname_imas_full_notm}} [installation](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=dependencies-installing-certificate-manager){: external}. |
-{: caption="Table 2. Key management architecture decisions for {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
+{: caption="Table 2. Key management architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 ## Architecture decisions for identity and access management in {{site.data.keyword.prodname_imas_short}}
 {: #iam-mas}
@@ -46,7 +46,7 @@ The following are architecture decisions about security for {{site.data.keyword.
 | IAM | Use a method to authenticate users | - Local authentication  \n - LDAP authentication  \n - Security Assertion Markup Language (SAML) authentication | Local authentication | With local authentication, {{site.data.keyword.prodname_imas_full_notm}} provides single sign-on (SSO) for all fully integrated applications. For more information, see [Authentication methods](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=authentication-methods){: external}. |
 | IAM | Securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.Bluemix_notm}} | {{site.data.keyword.Bluemix_notm}} IAM | {{site.data.keyword.Bluemix_notm}} IAM | Create {{site.data.keyword.Bluemix_notm}} Account then use IAM access policies to assign users, service IDs, and trusted profiles access to resources within the {{site.data.keyword.Bluemix_notm}} account. For more information, see [Creating your IBM Cloud account and configuring permissions](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=cloud-creating-your-account-configuring-permissions){: external}.|
 | Privileged access management | Ensure that all operator actions are run securely through a bastion host | Bastion Host | Bastion Host | Bastion Host VM is used to provision the OCP bootstrap node. It is provisioned through SSH over a private network to securely access resources within {{site.data.keyword.Bluemix_notm}}’s private network. For more information, see [Maximo Application Suite on-premises installation topologye](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=premises-installation-topology){: external}. |
-{: caption="Table 3. Identity and access management architecture decisions for {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
+{: caption="Table 3. Identity and access management architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 ## Architecture decisions for application security in {{site.data.keyword.prodname_imas_short}}
 {: #app-security-mas}
@@ -64,7 +64,7 @@ The following are architecture decisions about security for {{site.data.keyword.
 |---|---|---|---|---|
 | License management | Manage virtualized environments and measure license utilization | Suite License Service (SLS) | SLS | The Suite License Service (SLS) stores and manages the Maximo® Application Suite license. The license file is uploaded to the SLS server as part of initial setup. For more information, see [Suite License Service](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=services-suite-license-service){: external}. |
 | Administering licenses | Administer licenses and AppPoint usage | - Customer managed \n - IBM managed | IBM managed | IBM managed is handled by {{site.data.keyword.prodname_imas_full_notm}} representative. For more information, see [customer-managed](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=administering-licenses-apppoints-usage){: external}. |
-{: caption="Table 5. License management architecture decisions for {{site.data.keyword.prodname_imas_full_notm}}" caption-side="bottom"}
+{: caption="Table 5. License management architecture decisions for {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 
 The following sections summarize the security architecture decisions for the {{site.data.keyword.satellitelong_notm}} on-premises location.
