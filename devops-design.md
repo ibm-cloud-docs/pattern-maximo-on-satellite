@@ -15,4 +15,4 @@ keywords:
 # DevOps design
 {: #devops-design}
 
-<!-- text for devops design considerations goes here -->
+

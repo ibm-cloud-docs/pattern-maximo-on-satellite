@@ -15,7 +15,7 @@ keywords:
 {: #devops-decisions}
 
 
-<!-- below is a placeholder for all security domain decisions.    Remove the domains that are not in scope-->
+
 
 | Architecture decision| Requirement | Option | Decision| Rationale|
 |---|---|---|---|---|

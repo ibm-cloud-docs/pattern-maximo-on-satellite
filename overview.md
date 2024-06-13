@@ -15,8 +15,7 @@ keywords: Satellite, location, Maximo, MAS
 # Overview
 {: #overview}
 
-<!-- Note to author>    THIS SHOULD BE ABOUT 10 – 15 LINES AND FOLLOW….
-The objective of this pattern is to provide a solution design for……. -->
+
 
 The objective of this document is to provide an IBM Solution Design for the deployment of {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satellitelong}} in an on-premises {{site.data.keyword.satelliteshort}} location. {{site.data.keyword.satellitelong_notm}} is a software platform that lets you provision-managed cloud services across any environment. {{site.data.keyword.prodname_imas_full_notm}} is a set of applications for asset monitoring, management, predictive maintenance, and reliability planning.
 This document describes the configuration of an {{site.data.keyword.satellitelong_notm}} location, that would be on-premises, where {{site.data.keyword.prodname_imas_full_notm}} is deployed.

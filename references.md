@@ -12,7 +12,7 @@ keywords: Satellite, location, Maximo, MAS
 
 {{site.data.keyword.attribute-definition-list}}
 
-<!-- exapmles of format are below -->
+
 # References
 {: #references}
 
