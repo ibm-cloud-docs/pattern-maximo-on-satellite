@@ -27,7 +27,7 @@ The following sections summarize the compute architecture decisions for the patt
 | | Operating System (OS) | Red Hat Enterprise Linux (RHEL) 8.x (min) \n RH Core OS | RHEL 8.x | Typically running x86 architecture. Bring Your Own RHEL license. For the latest specs, see [{{site.data.keyword.satelliteshort}} Host System Requirements](/docs/satellite?topic=satellite-host-reqs) |
 | | RHOCP Control plane | 4 vCPU and 16 GB RAM \n  8 vCPU and 32 GB RAM \n  16 vCPU and 64 GB RAM \n  32 vCPU and 128 GB RAM | 8 vCPU and 32 GB RAM for Medium configuration | Minimum of 3 control nodes These control nodes also maintain an internal *etcd*  database that contains the Kubernetes resource definitions. See [etcd](https://cloud.ibm.com/docs/containers?topic=containers-encryption)|
 | Compute: Containers | Containers| Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} \n  Kubernetes service | Managed Red Hat OpenShift on {{site.data.keyword.satelliteshort}} | Red Hat OpenShift on {{site.data.keyword.satellitelong_notm}} provides a managed container platform with automatic provisioning, backup and updates of control nodes and etcd storage. |
-{: caption="Table 1. Architecture decisions for compute related to {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
+{: caption="Architecture decisions for compute related to {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 
 ## Architecture decisions for compute in Satellite
@@ -46,4 +46,4 @@ The following sections summarize the compute architecture decisions for the patt
 | | Red Hat OpenShift cluster: Workloads access | Red Hat OpenShift routes \n Node ports | Red Hat OpenShift routes | Expose apps to requests from the public or a private network with a hostname from Red Hat OpenShift Ingress controller's external IP address. Support HTTP and HTTPS protocols only. If the worker node hosts have public network connectivity, the cluster is created with a public Ingress controller by default. If the worker node hosts have private network connectivity only, the cluster is created with a private Ingress controller by default. |
 | | | | Node ports | Expose non-HTTP(S) apps, for example, User Datagram Protocol or Transmission Control Protocol (TCP) apps, with a NodePort in the 30000-32767 range. |
 | | Red Hat OpenShift cluster: Workload isolation | Single cluster for all workloads \n Separate clusters per workload | Single cluster for all workloads | Single cluster for all workloads. Workload isolation is achieved through projects and namespaces within a cluster. For more information, see [Container network policies](/docs/openshift?topic=openshift-network_policies), and IAM access roles. |
-{: caption="Table 2. Architecture decisions for compute related to {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}
+{: caption="Architecture decisions for compute related to {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}

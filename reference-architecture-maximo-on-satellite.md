@@ -48,11 +48,11 @@ Due to privacy, regulatory, or compliance reasons, customers might not want to s
 
 Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture where the {{site.data.keyword.satelliteshort}} location is deployed on-premises and {{site.data.keyword.prodname_imas_short}} is installed at that location.
 
-![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Figure 1. Solution architecture showing {{site.data.keyword.prodname_imas_short}} setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
+![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Solution architecture showing {{site.data.keyword.prodname_imas_short}} setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
 
 Figure 2 shows the components in {{site.data.keyword.prodname_imas_short}}  architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=models-maximo-application-suite-architecture){: external}.
 
-![MAS architecture](/images/MAS-architecture.png){: caption="Figure 2. {{site.data.keyword.prodname_imas_short}}  architecture" caption-side="bottom"}
+![MAS architecture](/images/MAS-architecture.png){: caption="{{site.data.keyword.prodname_imas_short}}  architecture" caption-side="bottom"}
 
 ## Design scope
 {: #design-scope}
@@ -79,7 +79,7 @@ The [Introduction to the Architecture Design Framework](/docs/architecture-frame
 
 In Figure 3, you can view the domains that are relevant in a {{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} solution.
 
-![MAS on {{site.data.keyword.satelliteshort}} Architecture Design Framework](/images/MAS-Satellite-AF.svg){: caption="Figure 3. M{{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} Architecture Design Framework" caption-side="bottom"}
+![MAS on {{site.data.keyword.satelliteshort}} Architecture Design Framework](/images/MAS-Satellite-AF.svg){: caption="M{{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} Architecture Design Framework" caption-side="bottom"}
 
 ## Solution components and requirements for {{site.data.keyword.satelliteshort}} location on-premises
 {: #solution-components-on-prem}
@@ -106,7 +106,7 @@ The following table represents a baseline set of requirements, which are applica
 | | Provide an Image Replication migration solution that minimizes disruption during cut-over |
 | | Access customer's existing Red Hat Container Registry |
 | | Use multiple {{site.data.keyword.satelliteshort}} locations to enable disaster recovery for {{site.data.keyword.prodname_imas_short}} applications |
-{: caption="Table 1. Pattern requirements" caption-side="bottom"}
+{: caption="Pattern requirements" caption-side="bottom"}
 
 {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.satelliteshort}} is a fully managed offering and there are certain responsibilities that are shared by {{site.data.keyword.IBM_notm}} and the customer. For more information about the table and the corresponding task details, see [{{site.data.keyword.satelliteshort}} responsibilities](/docs/satellite?topic=satellite-responsibilities).
 
@@ -165,4 +165,4 @@ More resources might be needed to support specific workloads. For more informati
 | Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.cloudaccesstraillong}} |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.cloudaccesstraillong}} |
 | Service management: Email | SMTP server | External SMTP server is required to configure {{site.data.keyword.prodname_imas_short}} core, Maximo Manage, and other applications to send emails to users. |
-{: caption="Table 2. Pattern components" caption-side="bottom"}
+{: caption="Pattern components" caption-side="bottom"}
