@@ -35,6 +35,8 @@ toc:
             navtitle: Storage
           - topic: networking-design.md
             navtitle: Networking
+          - topic: data-design.md
+            navtitle: Data
           - topic: security-design.md
             navtitle: Security
           - topic: resiliency-design.md
