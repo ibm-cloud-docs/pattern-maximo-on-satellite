@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2025-06-17"
 
 subcollection: pattern-maximo-on-satellite
 
