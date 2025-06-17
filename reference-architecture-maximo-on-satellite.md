@@ -160,7 +160,7 @@ More resources might be needed to support specific workloads. For more informati
 | Resiliency: Backup | Red Hat OpenShift clusters | Portworx PX Backup for Kubernetes | [IBM Storage Fusion](https://www.ibm.com/docs/en/storage-fusion/2.6?topic=product-overview) is recommended for {{site.data.keyword.prodname_imas_short}} backup |
 | Service management: Monitoring | IBM® Maximo® Application Suite | Configure Red Hat OpenShift cluster monitoring and install Grafana to monitor {{site.data.keyword.prodname_imas_short}}  \n - {{site.data.keyword.prodname_imas_short}} uses the Prometheus monitoring stack within OCP for application level metrics \n - IBM {{site.data.keyword.satelliteshort}} Monitoring Tool for infrastructure |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.monitoringlong_notm}} | |
-| Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.loganalysisshort}} tool \n - {{site.data.keyword.loganalysislong}} |
+| Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.logs_full}} tool \n - {{site.data.keyword.logs_full}} |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full_notm}} |
 | Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.logs_full}} |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full}} |
