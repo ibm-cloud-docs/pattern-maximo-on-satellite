@@ -38,7 +38,7 @@ The following are architecture decisions about resiliency for {{site.data.keywor
 ## Architecture decisions for high availability in Satellite
 {: #high-availability-sat}
 
-The following are architecture decisions about security for {{site.data.keyword.prodname_satellitelong_notm}}.
+The following are architecture decisions about security for {{site.data.keyword.satellitelong_notm}}.
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
