@@ -50,7 +50,7 @@ Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture w
 
 ![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Solution architecture showing {{site.data.keyword.prodname_imas_short}} setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
 
-Figure 2 shows the components in {{site.data.keyword.prodname_imas_short}}  architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=models-maximo-application-suite-architecture){: external}.
+Figure 2 shows the components in {{site.data.keyword.prodname_imas_short}}  architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/masv-and-l/cd?topic=models-maximo-application-suite-architecture){: external}.
 
 ![MAS architecture](/images/MAS-architecture.png){: caption="{{site.data.keyword.prodname_imas_short}}  architecture" caption-side="bottom"}
 
@@ -115,7 +115,7 @@ The following table represents a baseline set of requirements, which are applica
 
 For a list of {{site.data.keyword.satelliteshort}}-related components, see [Overview](/docs/pattern-base-ibm-cloud-satellite). The following table lists the components for setting up {{site.data.keyword.prodname_imas_short}} Core, on Red Hat OpenShift on-premises as a Managed Cloud Service by using {{site.data.keyword.Bluemix_notm}} Satellite. It represents the minimum resources that are needed to successfully install medium-sized {{site.data.keyword.prodname_imas_short}} Core.
 
-More resources might be needed to support specific workloads. For more information, see [Prerequisite software](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software){: external}.
+More resources might be needed to support specific workloads. For more information, see [Prerequisite software](https://www.ibm.com/docs/en/masv-and-l/cd?topic=overview-prerequisite-software){: external}.
 {: note}
 
 | Aspect| Component| How the component is used |
@@ -161,8 +161,8 @@ More resources might be needed to support specific workloads. For more informati
 | Service management: Monitoring | IBM® Maximo® Application Suite | Configure Red Hat OpenShift cluster monitoring and install Grafana to monitor {{site.data.keyword.prodname_imas_short}}  \n - {{site.data.keyword.prodname_imas_short}} uses the Prometheus monitoring stack within OCP for application level metrics \n - IBM {{site.data.keyword.satelliteshort}} Monitoring Tool for infrastructure |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.monitoringlong_notm}} | |
 | Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.loganalysisshort}} tool \n - {{site.data.keyword.loganalysislong}} |
-| | Red Hat® OpenShift clusters | {{site.data.keyword.loganalysislong_notm}} |
-| Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.cloudaccesstraillong}} |
-| | Red Hat® OpenShift clusters | {{site.data.keyword.cloudaccesstraillong}} |
+| | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full_notm}} |
+| Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.logs_full}} |
+| | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full}} |
 | Service management: Email | SMTP server | External SMTP server is required to configure {{site.data.keyword.prodname_imas_short}} core, Maximo Manage, and other applications to send emails to users. |
 {: caption="Pattern components" caption-side="bottom"}
