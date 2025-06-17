@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "title": "Deploying {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satellitelong}} in an on-premises {{site.data.keyword.satelliteshort}} location",
-  "introduction":"This is a landing page for the reference architecture that describes an IBM Solution Design for the deployment of {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satellitelong}} in an on-premises {{site.data.keyword.satelliteshort}} location.",
+  "title": "Deploying Maximo Application Suite core on Satellite in an on-premises location",
+  "introduction":"This is a landing page for the reference architecture that describes an IBM Solution Design for the deployment of Maximo Application Suite core on Satellite in an on-premises location.",
   "section_topics": {
   "links": [
     {
@@ -20,7 +20,7 @@
 },
   "section_architectures": [
     {
-      "title": "Deploying {{site.data.keyword.prodname_imas_full_notm}} on {{site.data.keyword.satellitelong}} in an on-premises {{site.data.keyword.satelliteshort}} architecture",
+      "title": "Deploying Maximo Application Suite core on Satellite in an on-premises location architecture",
       "href": "/docs/pattern-maximo-on-satellite?topic=pattern-maximo-on-satellite-overview",
       "deployable": false
     }
