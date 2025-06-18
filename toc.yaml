@@ -14,18 +14,15 @@ toc:
     path: pattern-maximo-on-satellite
     description: Deployment considerations for configuring Maximo Application Suite core in an IBM Cloud Satellite on-premises location
     label: Deploy Maximo Application Suite core in Satellite on-premises location
-
   entries:
   - navgroup:
       id: overview
       topics:
       - overview.md
-
   - navgroup:
       id: architecture
       topics:
       - reference-architecture-maximo-on-satellite.md
-
   - navgroup:
       id: plan
       topics:
@@ -67,19 +64,7 @@ toc:
           - topic: service-management-architecture.md
             navtitle: Service management
           # - other-architecture.md
-
-  - navgroup:
-      id: deploy
-      topics:
-      - topic-7.md
-      - topic-8.md
-
   - navgroup:
       id: reference
       topics:
       - references.md
-
-  - navgroup:
-      id: help
-      topics:
-      - topic: topic-10.md

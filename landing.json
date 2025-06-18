@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "title": "Deploying Maximo Application Suite core on Satellite in an on-premises location",
+  "introduction":"This is a landing page for the reference architecture that describes an IBM Solution Design for the deployment of Maximo Application Suite core on Satellite in an on-premises location.",
+  "section_topics": {
+  "links": [
+    {
+      "title": "Overview",
+      "href": "/docs/pattern-maximo-on-satellite?topic=pattern-maximo-on-satellite-overview"
+    },
+    {
+      "title": "Reference Architecture",
+      "href": "/docs/pattern-maximo-on-satellite?topic=pattern-maximo-on-satellite-maximo-on-satellite"
+    },
+    {
+      "title": "Planning",
+      "href": "/docs/pattern-maximo-on-satellite?topic=pattern-maximo-on-satellite-compute-design"
+    }
+  ]
+},
+  "section_architectures": [
+    {
+      "title": "Deploying Maximo Application Suite core on Satellite in an on-premises location architecture",
+      "href": "/docs/pattern-maximo-on-satellite?topic=pattern-maximo-on-satellite-overview",
+      "deployable": false
+    }
+  ]
+ }

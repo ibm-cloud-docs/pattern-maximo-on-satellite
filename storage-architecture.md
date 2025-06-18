@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-13"
+lastupdated: "2025-06-17"
 
 subcollection: pattern-maximo-on-satellite
 
@@ -24,7 +24,7 @@ The following are architecture decisions about storage for {{site.data.keyword.p
 |---|---|---|---|---|
 | Data store | Data dictionary for {{site.data.keyword.prodname_imas_short}} | - Enterprise Edition MongoDB \n - Community Edition MongoDB | Enterprise Edition MongoDB | Provides more security features and is a good option for enterprise grade workloads. |
 | Database | Database for Maximo Manage | - Db2 \n - Db2 as part of Cloud Pak for Data | Db2 | The enterprise might already own Db2 license. [Db2 configuration](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deployment-configuring-db2){: external} is done prior to deploying {{site.data.keyword.prodname_imas_short}}. |
-{: caption="Table 1. Architecture decisions for storage in {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
+{: caption="Architecture decisions for storage in {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 
 ## Architecture decisions for storage in Satellite
@@ -41,4 +41,4 @@ The following are architecture decisions about storage for {{site.data.keyword.s
 |  | Satellite Services Storage Template: OpenShift | -  [Available Storage Templates List](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers) \n- Other Storage, for example, Bring Your Own Driver | Storage Template | Satellite storage templates are provided and tested by IBM or third-party vendors, for more information, see [Which storage templates are available?](/docs/satellite?topic=satellite-storage-template-ov#storage-template-ov-providers). \n This reference solution doesn’t include any other Satellite-enabled services. |
 |  | Storage: Backup | | | |
 | | Satellite Control Plane | Cloud Object Storage | Cloud Object Storage | A customer-owned Cloud Object Storage bucket must be provided to be used for IBM-managed backups of the Satellite location control plane data. For more information, see [Creating Satellite Locations](/docs/satellite?topic=satellite-locations) for details. |
-{: caption="Table 2. Architecture decisions for storage in {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}
+{: caption="Architecture decisions for storage in {{site.data.keyword.satellitelong_notm}}" caption-side="bottom"}

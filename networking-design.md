@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-07"
+lastupdated: "2025-06-17"
 
 subcollection: pattern-maximo-on-satellite
 
@@ -34,7 +34,7 @@ Review the following IP address ranges that are reserved for {{site.data.keyword
 |---|---|
 | Non-CoreOS enabled locations | 172.16.0.0/16, 172.18.0.0/16, 172.19.0.0/16, 172.20.0.0/16, and 192.168.255.0/24 |
 | CoreOS enabled locations | 172.20.0.0/16 and 172.16.0.0/16 |
-{: caption="Table 1. Reserved IP Addresses" caption-side="bottom"}
+{: caption="Reserved IP Addresses" caption-side="bottom"}
 
 The system clocks on the {{site.data.keyword.satelliteshort}} hosts at the on-premises location should be synced.
 {: note}

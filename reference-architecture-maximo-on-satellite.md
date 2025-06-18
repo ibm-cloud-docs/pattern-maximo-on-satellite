@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-05-09"
+  years: 2025
+lastupdated: "2025-06-17"
 
 subcollection: pattern-maximo-on-satellite
 
@@ -48,11 +48,11 @@ Due to privacy, regulatory, or compliance reasons, customers might not want to s
 
 Figure 1 illustrates the {{site.data.keyword.satellitelong_notm}} architecture where the {{site.data.keyword.satelliteshort}} location is deployed on-premises and {{site.data.keyword.prodname_imas_short}} is installed at that location.
 
-![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Figure 1. Solution architecture showing {{site.data.keyword.prodname_imas_short}} setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
+![MAS on-premises Satellite architecture](/images/MAS-on-premises-SatLoc-architecture.svg){: caption="Solution architecture showing {{site.data.keyword.prodname_imas_short}} setup at an {{site.data.keyword.satellitelong_notm}} on-premises location" caption-side="bottom"}
 
-Figure 2 shows the components in {{site.data.keyword.prodname_imas_short}}  architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=models-maximo-application-suite-architecture){: external}.
+Figure 2 shows the components in {{site.data.keyword.prodname_imas_short}}  architecture. For more information, see [IBM Maximo Application Suite architecture](https://www.ibm.com/docs/en/masv-and-l/cd?topic=models-maximo-application-suite-architecture){: external}.
 
-![MAS architecture](/images/MAS-architecture.png){: caption="Figure 2. {{site.data.keyword.prodname_imas_short}}  architecture" caption-side="bottom"}
+![MAS architecture](/images/MAS-architecture.png){: caption="{{site.data.keyword.prodname_imas_short}}  architecture" caption-side="bottom"}
 
 ## Design scope
 {: #design-scope}
@@ -79,7 +79,7 @@ The [Introduction to the Architecture Design Framework](/docs/architecture-frame
 
 In Figure 3, you can view the domains that are relevant in a {{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} solution.
 
-![MAS on {{site.data.keyword.satelliteshort}} Architecture Design Framework](/images/MAS-Satellite-AF.svg){: caption="Figure 3. M{{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} Architecture Design Framework" caption-side="bottom"}
+![MAS on {{site.data.keyword.satelliteshort}} Architecture Design Framework](/images/MAS-Satellite-AF.svg){: caption="M{{site.data.keyword.prodname_imas_short}} on {{site.data.keyword.satellitelong_notm}} Architecture Design Framework" caption-side="bottom"}
 
 ## Solution components and requirements for {{site.data.keyword.satelliteshort}} location on-premises
 {: #solution-components-on-prem}
@@ -106,7 +106,7 @@ The following table represents a baseline set of requirements, which are applica
 | | Provide an Image Replication migration solution that minimizes disruption during cut-over |
 | | Access customer's existing Red Hat Container Registry |
 | | Use multiple {{site.data.keyword.satelliteshort}} locations to enable disaster recovery for {{site.data.keyword.prodname_imas_short}} applications |
-{: caption="Table 1. Pattern requirements" caption-side="bottom"}
+{: caption="Pattern requirements" caption-side="bottom"}
 
 {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.satelliteshort}} is a fully managed offering and there are certain responsibilities that are shared by {{site.data.keyword.IBM_notm}} and the customer. For more information about the table and the corresponding task details, see [{{site.data.keyword.satelliteshort}} responsibilities](/docs/satellite?topic=satellite-responsibilities).
 
@@ -115,7 +115,7 @@ The following table represents a baseline set of requirements, which are applica
 
 For a list of {{site.data.keyword.satelliteshort}}-related components, see [Overview](/docs/pattern-base-ibm-cloud-satellite). The following table lists the components for setting up {{site.data.keyword.prodname_imas_short}} Core, on Red Hat OpenShift on-premises as a Managed Cloud Service by using {{site.data.keyword.Bluemix_notm}} Satellite. It represents the minimum resources that are needed to successfully install medium-sized {{site.data.keyword.prodname_imas_short}} Core.
 
-More resources might be needed to support specific workloads. For more information, see [Prerequisite software](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=overview-prerequisite-software){: external}.
+More resources might be needed to support specific workloads. For more information, see [Prerequisite software](https://www.ibm.com/docs/en/masv-and-l/cd?topic=overview-prerequisite-software){: external}.
 {: note}
 
 | Aspect| Component| How the component is used |
@@ -160,9 +160,9 @@ More resources might be needed to support specific workloads. For more informati
 | Resiliency: Backup | Red Hat OpenShift clusters | Portworx PX Backup for Kubernetes | [IBM Storage Fusion](https://www.ibm.com/docs/en/storage-fusion/2.6?topic=product-overview) is recommended for {{site.data.keyword.prodname_imas_short}} backup |
 | Service management: Monitoring | IBM® Maximo® Application Suite | Configure Red Hat OpenShift cluster monitoring and install Grafana to monitor {{site.data.keyword.prodname_imas_short}}  \n - {{site.data.keyword.prodname_imas_short}} uses the Prometheus monitoring stack within OCP for application level metrics \n - IBM {{site.data.keyword.satelliteshort}} Monitoring Tool for infrastructure |
 | | Red Hat® OpenShift clusters | {{site.data.keyword.monitoringlong_notm}} | |
-| Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.loganalysisshort}} tool \n - {{site.data.keyword.loganalysislong}} |
-| | Red Hat® OpenShift clusters | {{site.data.keyword.loganalysislong_notm}} |
-| Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.cloudaccesstraillong}} |
-| | Red Hat® OpenShift clusters | {{site.data.keyword.cloudaccesstraillong}} |
+| Service management: Logging | {{site.data.keyword.satelliteshort}} location and hosts | - IBM {{site.data.keyword.satelliteshort}} {{site.data.keyword.logs_full}} tool \n - {{site.data.keyword.logs_full}} |
+| | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full_notm}} |
+| Service management: Auditing | {{site.data.keyword.satelliteshort}}e location events | {{site.data.keyword.logs_full}} |
+| | Red Hat® OpenShift clusters | {{site.data.keyword.logs_full}} |
 | Service management: Email | SMTP server | External SMTP server is required to configure {{site.data.keyword.prodname_imas_short}} core, Maximo Manage, and other applications to send emails to users. |
-{: caption="Table 2. Pattern components" caption-side="bottom"}
+{: caption="Pattern components" caption-side="bottom"}
