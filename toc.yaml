@@ -1,13 +1,7 @@
-#  Name your file `toc.yaml`
-#  Make sure you include all nav file coding requirements
-#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
----
 toc:
   properties:
     subcollection: pattern-maximo-on-satellite
-    # industry: industry-value
     use-case: Enterprise asset management
-    # compliance: compliance-value
     audience: solution
     content-type: deployment
     href: /docs/pattern-maximo-on-satellite
@@ -45,7 +39,6 @@ toc:
             navtitle: Service management
           - topic: migration-design.md
             navtitle: Migration
-          # - other-design.md
       - topicgroup:
           label: Architecture decisions
           topics:
@@ -63,7 +56,6 @@ toc:
             navtitle: Resiliency
           - topic: service-management-architecture.md
             navtitle: Service management
-          # - other-architecture.md
   - navgroup:
       id: reference
       topics:

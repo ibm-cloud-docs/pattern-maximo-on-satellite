@@ -22,6 +22,6 @@ There are different facets to security in {{site.data.keyword.prodname_imas_full
 - Product images are pulled from authenticated IBM entitled registries.
 - Users in {{site.data.keyword.prodname_imas_full_notm}} are created and managed at the suite level and are made available for application-level access with application-specific role assignments, like administrator or user.
 - Application programming interface (API) keys can be generated and managed to be used in automation processes for user management in {{site.data.keyword.prodname_imas_full_notm}}.
-- API Key generated in {{site.data.keyword.prodname_imas_full_notm}} Manage has a much broader scope than those generated to user management in {{site.data.keyword.prodname_imas_full_notm}} Core. For more information, see [Maximo Manage](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=manage-overview).
+- API Key generated in {{site.data.keyword.prodname_imas_full_notm}} Manage has a much broader scope than those generated to user management in {{site.data.keyword.prodname_imas_full_notm}} Core. For more information, see [Maximo Manage](https://www.ibm.com/docs/en/masv-and-l/cd?topic=manage-overview){: external}.
 
 Security features from {{site.data.keyword.satellitelong_notm}} platform also come into play when setting up {{site.data.keyword.prodname_imas_full_notm}} on-premises in a {{site.data.keyword.satelliteshort}} location.

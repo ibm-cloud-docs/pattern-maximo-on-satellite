@@ -18,17 +18,17 @@ There are 2 main components in this pattern - {{site.data.keyword.prodname_imas_
 ## Resiliency design for {{site.data.keyword.prodname_imas_short}}
 {: #resiliency-design-mas}
 
-High availability is provided by the main components of ({{site.data.keyword.prodname_imas_full_notm}}). {{site.data.keyword.prodname_imas_short}} core services are deployed automatically with any instance. These services handle the basic administration and configuration of the suite, and they store metadata in a deployed MongoDB in a three-node instance. See [{{site.data.keyword.prodname_imas_short}} logical architecture](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-logical-architecture){: external}.
+High availability is provided by the main components of ({{site.data.keyword.prodname_imas_full_notm}}). {{site.data.keyword.prodname_imas_short}} core services are deployed automatically with any instance. These services handle the basic administration and configuration of the suite, and they store metadata in a deployed MongoDB in a three-node instance. See [{{site.data.keyword.prodname_imas_short}} logical architecture](https://www.ibm.com/docs/en/masv-and-l/cd?topic=availability-logical-architecture){: external}.
 
 {{site.data.keyword.prodname_imas_short}} has the ability to configure services to automatically restart after a failure and keep multiple instances of the service in operation. {{site.data.keyword.prodname_imas_short}} application services use their own persistence stores that have some flexibility for the instance location. In particular, the application state and user data are spread across the following types of persistence stores. You can restore individual {{site.data.keyword.prodname_imas_short}} applications from your backups. While there are different choices, the ones relevant to this pattern are shown in Table 1 along with how resiliency is handled by that component:
 
-{{site.data.keyword.prodname_imas_short}} provides resiliency through suite service instances, availability zones (AZs), and storage. For more information, see [Resilient architecture components](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components){: external}.
-- Recommendation is to [back up](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=suite-maximo-application-core){: external} {{site.data.keyword.prodname_imas_short}} core databases and the namespace in Red Hat® OpenShift®.
+{{site.data.keyword.prodname_imas_short}} provides resiliency through suite service instances, availability zones (AZs), and storage. For more information, see [Resilient architecture components](https://www.ibm.com/docs/en/masv-and-l/cd?topic=availability-resilient-architecture-components){: external}.
+- Recommendation is to [back up](www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=suite-maximo-application-core){: external} {{site.data.keyword.prodname_imas_short}} core databases and the namespace in Red Hat® OpenShift®.
 - Suite services: Services are configured to automatically restart after a failure and keep multiple instances of the service in operation.
 - Availability zones: In an on-premises setup there are no availability zones. Red Hat OpenShift worker nodes are configured across physical machines in the {{site.data.keyword.satelliteshort}} location and Kubernetes automatically schedules redundancy for the different pods.
 - Storage: There is application code and configuration data. \n -- Application code: Product images can use pods to create multiple redundant copies. \n -- Configuration data: Kubernetes configuration secrets and configuration maps are held in etcd. Other configuration data is in MongoDB. Both use mirroring.
 
-For more information, see [{{site.data.keyword.prodname_imas_short}} resiliency pre-requisites](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=availability-resilient-architecture-components#concept_lpr_mxk_nwb__title__5){: external}. The following table shows the resiliency aspect for the four persistence stores.
+For more information, see [{{site.data.keyword.prodname_imas_short}} resiliency pre-requisites](https://www.ibm.com/docs/en/masv-and-l/cd?topic=availability-resilient-architecture-components#concept_lpr_mxk_nwb__title__5){: external}. The following table shows the resiliency aspect for the four persistence stores.
 
  Persistence store | Recommended product | Resiliency |
 |---|---|---|
@@ -38,13 +38,13 @@ For more information, see [{{site.data.keyword.prodname_imas_short}} resiliency 
 | Red Hat OpenShift persistence storage | etcd | You can use built-in redundancy for greater hardware protection. |
 {: caption="Persistence storage products in {{site.data.keyword.prodname_imas_short}} and their resilience features" caption-side="bottom"}
 
-Lastly, the persistent volume claim data can be copied from the pod to Cloud Object Storage directly by creating a [network policy](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=pv-backing-up-persistent-volume-claim-data-cloud-object-storage). The network policy is needed because the {{site.data.keyword.prodname_imas_short}} namespace blocks the egress network by default.
+Lastly, the persistent volume claim data can be copied from the pod to Cloud Object Storage directly by creating a [network policy](https://www.ibm.com/docs/en/masv-and-l/cd?topic=pv-backing-up-persistent-volume-claim-data-cloud-object-storage){: external}. The network policy is needed because the {{site.data.keyword.prodname_imas_short}} namespace blocks the egress network by default.
 
 
 ## Resiliency design for Satellite
 {: #resiliency-design-sat}
 
-From an {{site.data.keyword.satellitelong_notm}} perspective, high availability can be achieved on 3 levels: {{site.data.keyword.satellitelong_notm}} Management plane, {{site.data.keyword.satellitelong_notm}} Control plane, {{site.data.keyword.Bluemix_notm}} services. For more information, see [{{site.data.keyword.satelliteshort}} HA](https://cloud.ibm.com/docs/satellite?topic=satellite-ha).
+From an {{site.data.keyword.satellitelong_notm}} perspective, high availability can be achieved on 3 levels: {{site.data.keyword.satellitelong_notm}} Management plane, {{site.data.keyword.satellitelong_notm}} Control plane, {{site.data.keyword.Bluemix_notm}} services. For more information, see [{{site.data.keyword.satelliteshort}} HA](/docs/satellite?topic=satellite-sat-ha-dr).
 
 
 | Component level | Description | Comments |

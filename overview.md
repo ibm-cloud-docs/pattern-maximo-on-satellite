@@ -29,7 +29,7 @@ The pattern follows the {{site.data.keyword.IBM}} Architecture Design Framework 
 
 •	Will highlight what {{site.data.keyword.prodname_imas_full_notm}} customers look for, namely secure fast responses. In keeping with that focus, the pattern addresses two key aspects of an {{site.data.keyword.satellitelong}} solution – network connectivity and security.
 
-The objective of this pattern document is to serve as a guide to meet typical customer requirements and provide a base reference solution for a distributed cloud solution that is secure and resilient especially for customers moving from Maximo v7.x to {{site.data.keyword.prodname_imas_full_notm}} v8.x.
+The objective of this pattern document is to serve as a guide to meet typical customer requirements and provide a base reference solution for a distributed cloud solution that is secure and resilient especially for customers moving from Maximo v7.x to {{site.data.keyword.prodname_imas_full_notm}} v9.x.
 
 ## Major components of the solution
 {: #massat-components}
@@ -40,9 +40,9 @@ The objective of this pattern document is to serve as a guide to meet typical cu
 
 The Maximo Application Suite includes applications, such as Maximo Manage, Maximo Monitor, Maximo Health, Maximo Predict, Maximo Visual Inspection, and Maximo Assist.
 
-Maximo MRO Inventory Optimization is a SaaS offering and not included in {{site.data.keyword.prodname_imas_full_notm}}. For more information, see [{{site.data.keyword.prodname_imas_full_notm}} architecture](https://www.ibm.com/docs/en/mas-cd/maximo-manage/continuous-delivery?topic=SSLPL8_cd/com.ibm.mam.doc/upgrade/c_mas_architecture.htm).
+Maximo MRO Inventory Optimization is a SaaS offering and not included in {{site.data.keyword.prodname_imas_full_notm}}. For more information, see [{{site.data.keyword.prodname_imas_full_notm}} architecture](/docs/en/masv-and-l/maximo-manage/cd?topic=SSLPL8_cd/com.ibm.mam.doc/upgrade/c_mas_architecture.htm).
 {: note}
 
 Maximo® Application Suite includes an entitlement to use Cloud Pak for Data (CP4D) and a rela inted Red Hat OpenShift subscription that's extended to cover MAS. There is also the option not to have the Red Hat OpenShift subscription included, for those customers that already have an Red Hat OpenShift subscription.
 
-In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which {{site.data.keyword.prodname_imas_full_notm}} v8.x would be set up at that location. This might serve as an upgrade pattern for customers who are currently using Maximo EAM v7. The equivalent functionality available is {{site.data.keyword.prodname_imas_full_notm}} v8 Manage.
+In this case the {{site.data.keyword.satelliteshort}} location would be configured on-premises. After which {{site.data.keyword.prodname_imas_full_notm}} v9.x would be set up at that location. This might serve as an upgrade pattern for customers who are currently using Maximo EAM v7. The equivalent functionality available is {{site.data.keyword.prodname_imas_full_notm}} v8 Manage.
