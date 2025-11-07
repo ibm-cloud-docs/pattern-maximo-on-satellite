@@ -23,7 +23,7 @@ The following are architecture decisions about storage for {{site.data.keyword.p
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
 | Data store | Data dictionary for {{site.data.keyword.prodname_imas_short}} | - Enterprise Edition MongoDB \n - Community Edition MongoDB | Enterprise Edition MongoDB | Provides more security features and is a good option for enterprise grade workloads. |
-| Database | Database for Maximo Manage | - Db2 \n - Db2 as part of Cloud Pak for Data | Db2 | The enterprise might already own Db2 license. [Db2 configuration](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=deployment-configuring-db2){: external} is done prior to deploying {{site.data.keyword.prodname_imas_short}}. |
+| Database | Database for Maximo Manage | - Db2 \n - Db2 as part of Cloud Pak for Data | Db2 | The enterprise might already own Db2 license. [Db2 configuration](https://www.ibm.com/docs/en/masv-and-l/cd?topic=deployment-configuring-db2){: external} is done prior to deploying {{site.data.keyword.prodname_imas_short}}. |
 {: caption="Architecture decisions for storage in {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
 
