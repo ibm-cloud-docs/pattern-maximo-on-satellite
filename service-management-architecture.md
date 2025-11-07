@@ -32,7 +32,7 @@ The following are architecture decisions about service management for {{site.dat
 
 | Architecture decision | Requirement | Option | Decision | Rationale |
 |---|---|---|---|---|
-| Audit logging | Aggregate and securely store audit logs | - Forward logs from Red Hat® OpenShift® to an external system \n - Use Red Hat® OpenShift® logging subsystem | Forward logs to [external system](https://www.ibm.com/docs/en/mas-cd/continuous-delivery?topic=administering-audit-logging-in-maximo-application-suite) | Most enterprises have external logging system |
+| Audit logging | Aggregate and securely store audit logs | - Forward logs from Red Hat® OpenShift® to an external system \n - Use Red Hat® OpenShift® logging subsystem | Forward logs to [external system](https://www.ibm.com/docs/en/masv-and-l/cd?topic=administering-audit-logging-in-maximo-application-suite){: external} | Most enterprises have external logging system |
 | Log monitoring of DB | Monitor database logs to detect issues that might impact deployment/availability of databases | Database logs | DB logs | Use the DB logs along with {{site.data.keyword.Bluemix_notm}} Logging to get more DB-specific log information. |
 {: caption="Architecture decisions for logging & audit logging in {{site.data.keyword.prodname_imas_short}}" caption-side="bottom"}
 
